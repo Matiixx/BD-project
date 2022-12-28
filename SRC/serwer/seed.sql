@@ -20,7 +20,9 @@ insert into
     "cena_doba"
   )
 values
-  (0, 'Normalny', 110.00);
+  (0, 'Normalny', 110.00),
+  (1, 'Premium', 260.50),
+  (2, 'President', 1030.00);
 
 insert into
   "Pokoj"(
@@ -34,7 +36,7 @@ insert into
     "klimatyzacja"
   )
 values
-  (1, 100, 1, 2, 0, 15, false, false);
+  (1, 100, 1, 4, 0, 15, false, false);
 
 delete from
   "Uzytkownik";
@@ -66,7 +68,6 @@ insert into
   "Rezerwacja"(
     "rezerwacja_id",
     "uzytkownik_id",
-    "data_rezerwacji",
     "data_rozpoczecia",
     "data_zakonczenia",
     "pokoj_id",
@@ -76,30 +77,46 @@ values
   (
     0,
     0,
-    '2022-12-16',
     '2022-12-30',
-    '2023-01-01',
+    '2023-01-02',
     1,
     4
   ),
   (
     1,
     0,
-    '2022-12-16',
-    '2023-01-05',
+    '2023-01-02',
     '2023-01-08',
     1,
-    5
+    4
   );
 
 delete from
   "Pracownik";
 
 insert into
-  "Pracownik"("pracownik_id", "imie", "nazwisko")
+  "Pracownik"(
+    "pracownik_id",
+    "email",
+    "haslo",
+    "imie",
+    "nazwisko"
+  )
 values
-  (0, 'Jan', 'Kowalski'),
-  (1, 'Janina', 'Kowalska');
+  (
+    0,
+    'KowalskiJ@wp.pl',
+    '123123',
+    'Jan',
+    'Kowalski'
+  ),
+  (
+    1,
+    'KowalskaJ@wp.pl',
+    '123123',
+    'Janina',
+    'Kowalska'
+  );
 
 insert into
   "Pracownicy_pokoju"(
