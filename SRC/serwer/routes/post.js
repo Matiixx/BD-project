@@ -64,4 +64,16 @@ router.post('/pokoj-pracownik', async (req, res) => {
   }
 })
 
+router.post('/kategoria', async (req, res) => {
+  const { nazwa_kategorii, cena_doba } = req.body;
+  console.log(req.body);
+  try {
+    const addRes = await pool.query('INSERT INTO projekt."Kategoria"("nazwa_kategorii","cena_doba") VALUES($1,$2) RETURNING *;',
+      [nazwa_kategorii, cena_doba])
+    res.json(addRes.rows[0])
+  } catch (e) {
+    res.status(400).json({ "message": e.message })
+  }
+})
+
 module.exports = router;
