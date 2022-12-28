@@ -1,5 +1,5 @@
 CREATE TABLE "Pokoj"(
-    "pokoj_id" INTEGER NOT NULL,
+    "pokoj_id" SERIAL,
     "numer_pokoju" INTEGER NOT NULL,
     "pietro" INTEGER NOT NULL,
     "liczba_miejsc" INTEGER NOT NULL,
@@ -26,9 +26,9 @@ ADD
     PRIMARY KEY("kategoria_id");
 
 CREATE TABLE "Rezerwacja"(
-    "rezerwacja_id" INTEGER NOT NULL,
+    "rezerwacja_id" SERIAL,
     "uzytkownik_id" INTEGER NOT NULL,
-    "data_rezerwacji" DATE NOT NULL,
+    "data_rezerwacji" DATE NOT NULL DEFAULT CURRENT_DATE,
     "data_rozpoczecia" DATE NOT NULL,
     "data_zakonczenia" DATE NOT NULL,
     "pokoj_id" INTEGER NOT NULL,
@@ -41,7 +41,7 @@ ADD
     PRIMARY KEY("rezerwacja_id");
 
 CREATE TABLE "Uzytkownik"(
-    "uzytkownik_id" INTEGER NOT NULL,
+    "uzytkownik_id" SERIAL,
     "imie" VARCHAR(255) NOT NULL,
     "nazwisko" VARCHAR(255) NOT NULL,
     "email" VARCHAR(255) NOT NULL,
@@ -70,7 +70,7 @@ ADD
     PRIMARY KEY("platnosc_id");
 
 CREATE TABLE "Zakwaterowanie"(
-    "zakwaterowanie_id" INTEGER NOT NULL,
+    "zakwaterowanie_id" SERIAL,
     "rezerwacja_id" INTEGER NOT NULL,
     "czy_zakwaterowany" BOOLEAN NOT NULL
 );
@@ -81,7 +81,9 @@ ADD
     PRIMARY KEY("zakwaterowanie_id");
 
 CREATE TABLE "Pracownik"(
-    "pracownik_id" INTEGER NOT NULL,
+    "pracownik_id" SERIAL,
+    "email" VARCHAR(255) NOT NULL,
+    "haslo" VARCHAR(255) NOT NULL,
     "imie" VARCHAR(255) NOT NULL,
     "nazwisko" VARCHAR(255) NOT NULL
 );
@@ -92,7 +94,7 @@ ADD
     PRIMARY KEY("pracownik_id");
 
 CREATE TABLE "Pracownicy_pokoju"(
-    "pracownicy_pokoju_id" INTEGER NOT NULL,
+    "pracownicy_pokoju_id" SERIAL,
     "pokoj_id" INTEGER NOT NULL,
     "pracownik_id" INTEGER NOT NULL
 );
