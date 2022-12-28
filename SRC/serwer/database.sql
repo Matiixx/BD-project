@@ -15,7 +15,7 @@ ADD
     PRIMARY KEY("pokoj_id");
 
 CREATE TABLE "Kategoria"(
-    "kategoria_id" INTEGER NOT NULL,
+    "kategoria_id" SERIAL,
     "nazwa_kategorii" VARCHAR(255) NOT NULL,
     "cena_doba" DOUBLE PRECISION NOT NULL
 );
