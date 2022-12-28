@@ -9,6 +9,11 @@ router.get('/', async (req, res) => {
   console.log("GET");
 })
 
+router.get('/kategoria', async (req, res) => {
+  const queryRes = await pool.query('SELECT * FROM projekt."Kategoria";')
+  res.json(queryRes.rows)
+})
+
 router.get('/kategoria/:id', async (req, res) => {
   const { id } = req.params;
   const queryRes = await pool.query('SELECT * FROM projekt."Kategoria" where "kategoria_id"=$1;', [id])
@@ -23,8 +28,8 @@ router.get('/pokoj', async (req, res) => {
 router.get('/pokoj/:id', async (req, res) => {
   const { id } = req.params;
   const queryRes = await pool.query('SELECT * FROM projekt."Pokoj" where "pokoj_id"=$1;', [id])
-  const kategoriaRes = await axios.get('http://pascal.fis.agh.edu.pl:3000/0cichostepski/get/kategoria/' + queryRes.rows[0].kategoria_id)
-  const rezerwacjaRes = await axios.get('http://pascal.fis.agh.edu.pl:3000/0cichostepski/get/rezerwacja-pokoju/' + id)
+  const kategoriaRes = await axios.get('http://pascal.fis.agh.edu.pl:' + process.env.PORT + '/0cichostepski/get/kategoria/' + queryRes.rows[0].kategoria_id)
+  const rezerwacjaRes = await axios.get('http://pascal.fis.agh.edu.pl:' + process.env.PORT + '/0cichostepski/get/rezerwacja-pokoju/' + id)
   const { kategoria_id, ...pokojRes } = queryRes.rows[0];
   res.json({ ...pokojRes, "kategoria": kategoriaRes.data, "rezerwacja": rezerwacjaRes.data })
 })
