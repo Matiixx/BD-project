@@ -3,6 +3,7 @@ const express = require('express')
 var cors = require('cors')
 const getRoutes = require('./routes/get')
 const postRoutes = require('./routes/post')
+const putRoutes = require('./routes/put')
 
 const app = express()
 app.use(express.json())
@@ -14,6 +15,9 @@ app.use('/0cichostepski/get', getRoutes)
 
 // -------------- POST ROUTES -------------- 
 app.use('/0cichostepski/post', postRoutes)
+
+// -------------- PUT ROUTES -------------- 
+app.use('/0cichostepski/put', putRoutes)
 
 // -------------- RUN SERVER -------------- 
 app.listen(port, () => {
