@@ -68,8 +68,9 @@ router.get('/rezerwacja/:id', async (req, res) => {
   const { id } = req.params;
   const rezerwacjaRes = await pool.query('SELECT * FROM projekt."Rezerwacja" where "rezerwacja_id"=$1;', [id])
   const platnoscRes = await pool.query('SELECT * FROM projekt."Platnosc" where "rezerwacja_id"=$1;', [id])
+  const zakwaterowanieRes = await pool.query('SELECT * FROM projekt."Zakwaterowanie" where "rezerwacja_id"=$1;', [id])
   const uzykownikRes = await pool.query('SELECT "imie", "nazwisko" FROM projekt."Uzytkownik" where "uzytkownik_id"=$1;', [rezerwacjaRes.rows[0].uzytkownik_id])
-  res.json({ ...rezerwacjaRes.rows[0], "platnosc": platnoscRes.rows[0], "uzytkownik": uzykownikRes.rows[0] })
+  res.json({ ...rezerwacjaRes.rows[0], "platnosc": platnoscRes.rows[0], "uzytkownik": uzykownikRes.rows[0], "zakwaterowanie": zakwaterowanieRes.rows[0] })
 })
 
 router.get('/uzytkownik', async (req, res) => {
