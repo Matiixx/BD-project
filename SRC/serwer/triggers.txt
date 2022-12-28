@@ -1,40 +1,38 @@
 --Triggers
 CREATE
-or replace function dodajPlatnoscDoRezerwacji() returns TRIGGER language plpgsql as $$ DECLARE kwota_record decimal;
+or replace function dodajPlatnoscDoRezerwacji() returns TRIGGER language plpgsql as $$
+DECLARE
+  kwota_record decimal;
+  liczba_dni INTEGER;
+BEGIN
+  liczba_dni := NEW.data_zakonczenia - NEW.data_rozpoczecia;
+  select
+    k."cena_doba" into kwota_record
+  from
+    projekt."Kategoria" as k
+    join projekt."Pokoj" as p USING("kategoria_id")
+  where
+    p."pokoj_id" = NEW.pokoj_id;
 
-liczba_dni INTEGER;
+  INSERT into
+    projekt."Platnosc"(
+      "rezerwacja_id",
+      "kwota",
+      "czy_zaksiegowane"
+    )
+  values
+    (
+      NEW.rezerwacja_id,
+      kwota_record * liczba_dni,
+      false
+    );
 
-BEGIN liczba_dni := NEW.data_zakonczenia - NEW.data_rozpoczecia;
+  raise NOTICE 'DODANO % * %',
+  kwota_record,
+  liczba_dni;
 
-select
-  k."cena_doba" into kwota_record
-from
-  projekt."Kategoria" as k
-  join projekt."Pokoj" as p USING("kategoria_id")
-where
-  p."pokoj_id" = NEW.pokoj_id;
-
-INSERT into
-  projekt."Platnosc"(
-    "rezerwacja_id",
-    "kwota",
-    "czy_zaksiegowane"
-  )
-values
-  (
-    NEW.rezerwacja_id,
-    kwota_record * liczba_dni,
-    false
-  );
-
-raise NOTICE 'DODANO % * %',
-kwota_record,
-liczba_dni;
-
-return NEW;
-
+  return NEW;
 END;
-
 $$;
 
 drop Trigger dodajPlatnoscDoRezerwacji on "Rezerwacja";
@@ -45,12 +43,56 @@ INSERT
   ON "Rezerwacja" for each row execute procedure dodajPlatnoscDoRezerwacji();
 
 ------------------------------------------------------------------------------------------------------------
+CREATE
+or replace function dodajZakwaterowanieDoRezerwacji() returns TRIGGER language plpgsql as $$
+BEGIN
+  INSERT INTO projekt."Zakwaterowanie"("rezerwacja_id", "czy_zakwaterowany") values(NEW.rezerwacja_id, false);
+  return NEW;
+END;
+$$;
+
+drop Trigger dodajZakwaterowanieDoRezerwacji on "Rezerwacja";
+
+CREATE Trigger dodajZakwaterowanieDoRezerwacji
+AFTER
+INSERT
+  ON "Rezerwacja" for each row execute procedure dodajZakwaterowanieDoRezerwacji();
+------------------------------------------------------------------------------------------------------------
+CREATE
+or replace function edytujPlatnoscDoRezerwacji() returns TRIGGER language plpgsql as $$
+DECLARE
+  kwota_record decimal;
+  liczba_dni INTEGER;
+BEGIN
+  liczba_dni := NEW.data_zakonczenia - NEW.data_rozpoczecia;
+  select
+    k."cena_doba" into kwota_record
+  from
+    projekt."Kategoria" as k
+    join projekt."Pokoj" as p USING("kategoria_id")
+  where
+    p."pokoj_id" = NEW.pokoj_id;
+
+  UPDATE projekt."Platnosc" SET 
+      "kwota"=kwota_record * liczba_dni,
+      "czy_zaksiegowane"=false
+      where "rezerwacja_id"=NEW.rezerwacja_id;
+
+  return NEW;
+END;
+$$;
+
+drop Trigger edytujPlatnoscDoRezerwacji on "Rezerwacja";
+
+CREATE Trigger edytujPlatnoscDoRezerwacji
+AFTER UPDATE ON "Rezerwacja" for each row execute procedure edytujPlatnoscDoRezerwacji();
+------------------------------------------------------------------------------------------------------------
 
 CREATE
 or replace function sprawdzNowyPokoj() returns TRIGGER language plpgsql as $$
 
 BEGIN
-  IF EXISTS (SELECT * FROM projekt."Pokoj" where "numer_pokoju"=NEW.numer_pokoju) THEN
+  IF EXISTS (SELECT * FROM projekt."Pokoj" where "numer_pokoju"=NEW.numer_pokoju AND "pokoj_id"!=NEW.pokoj_id) THEN
     RAISE EXCEPTION 'Pokoj o podanym numerze juz istnieje';
     RETURN NULL;
   END IF;
@@ -87,7 +129,7 @@ BEGIN
     RETURN NULL;
   end IF;
 
-  FOR reserwacje_row IN SELECT * FROM projekt."Rezerwacja" where "pokoj_id"=NEW.pokoj_id
+  FOR reserwacje_row IN SELECT * FROM projekt."Rezerwacja" where "pokoj_id"=NEW.pokoj_id AND "rezerwacja_id"!=NEW.rezerwacja_id
     LOOP
       IF NEW.data_rozpoczecia < reserwacje_row.data_zakonczenia AND NEW.data_zakonczenia > reserwacje_row.data_rozpoczecia THEN
         raise EXCEPTION 'Zle daty rezerwacji - pokoj jest zajety';
@@ -110,7 +152,7 @@ INSERT OR UPDATE
 CREATE
 or replace function sprawdzNowegoUzytkownika() returns TRIGGER language plpgsql as $$
 BEGIN
-  IF EXISTS (SELECT * FROM projekt."Uzytkownik" where "email"=NEW.email) THEN
+  IF EXISTS (SELECT * FROM projekt."Uzytkownik" where "email"=NEW.email AND "uzytkownik_id"!=NEW.uzytkownik_id) THEN
     raise EXCEPTION 'Email jest zajety';
     return NULL;
   END IF;
