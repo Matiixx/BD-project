@@ -1,0 +1,45 @@
+--Triggers
+CREATE
+or replace function dodajPlatnoscDoRezerwacji() returns TRIGGER language plpgsql as $$ DECLARE kwota_record decimal;
+
+liczba_dni INTEGER;
+
+BEGIN liczba_dni := NEW.data_zakonczenia - NEW.data_rozpoczecia;
+
+select
+  k."cena_doba" into kwota_record
+from
+  "Kategoria" as k
+  join "Pokoj" as p USING("kategoria_id")
+where
+  p."pokoj_id" = NEW.pokoj_id;
+
+INSERT into
+  "Platnosc"(
+    "rezerwacja_id",
+    "kwota",
+    "czy_zaksiegowane"
+  )
+values
+  (
+    NEW.rezerwacja_id,
+    kwota_record * liczba_dni,
+    false
+  );
+
+raise NOTICE 'DODANO % * %',
+kwota_record,
+liczba_dni;
+
+return NEW;
+
+END;
+
+$$;
+
+drop Trigger dodajPlatnoscDoRezerwacji on "Rezerwacja";
+
+CREATE Trigger dodajPlatnoscDoRezerwacji
+AFTER
+INSERT
+  ON "Rezerwacja" for each row execute procedure dodajPlatnoscDoRezerwacji();
