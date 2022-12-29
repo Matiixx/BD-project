@@ -1,31 +1,17 @@
-delete from
-  "Platnosc";
-
-delete from
-  "Rezerwacja";
-
-delete from
-  "Pracownicy_pokoju";
-
-delete from
-  "Pokoj";
-
-delete from
-  "Kategoria";
-
-insert into
-  "Kategoria"(
+delete from "Platnosc";
+delete from "Rezerwacja";
+delete from "Pracownicy_pokoju";
+delete from "Pokoj";
+delete from "Kategoria";
+insert into "Kategoria"(
     "kategoria_id",
     "nazwa_kategorii",
     "cena_doba"
   )
-values
-  (0, 'Normalny', 110.00),
+values (0, 'Normalny', 110.00),
   (1, 'Premium', 260.50),
   (2, 'President', 1030.00);
-
-insert into
-  "Pokoj"(
+insert into "Pokoj"(
     "pokoj_id",
     "numer_pokoju",
     "pietro",
@@ -35,14 +21,9 @@ insert into
     "balkon",
     "klimatyzacja"
   )
-values
-  (1, 100, 1, 4, 0, 15, false, false);
-
-delete from
-  "Uzytkownik";
-
-insert into
-  "Uzytkownik"(
+values (1, 100, 1, 4, 0, 15, false, false);
+delete from "Uzytkownik";
+insert into "Uzytkownik"(
     "uzytkownik_id",
     "imie",
     "nazwisko",
@@ -52,8 +33,7 @@ insert into
     "miasto",
     "typ_uzytkownika"
   )
-values
-  (
+values (
     0,
     'Mateusz',
     'Cichostepski',
@@ -63,9 +43,7 @@ values
     'Krakow',
     'gosc'
   );
-
-insert into
-  "Rezerwacja"(
+insert into "Rezerwacja"(
     "rezerwacja_id",
     "uzytkownik_id",
     "data_rozpoczecia",
@@ -73,37 +51,31 @@ insert into
     "pokoj_id",
     "liczba_gosci"
   )
-values
-  (
+values (
     0,
     0,
-    '2022-12-30',
-    '2023-01-02',
+    '2022-12-10',
+    '2022-12-17',
     1,
     4
   ),
   (
     1,
     0,
-    '2023-01-02',
-    '2023-01-08',
+    '2022-01-02',
+    '2022-01-08',
     1,
     4
   );
-
-delete from
-  "Pracownik";
-
-insert into
-  "Pracownik"(
+delete from "Pracownik";
+insert into "Pracownik"(
     "pracownik_id",
     "email",
     "haslo",
     "imie",
     "nazwisko"
   )
-values
-  (
+values (
     0,
     'KowalskiJ@wp.pl',
     '123123',
@@ -117,13 +89,10 @@ values
     'Janina',
     'Kowalska'
   );
-
-insert into
-  "Pracownicy_pokoju"(
+insert into "Pracownicy_pokoju"(
     "pracownicy_pokoju_id",
     "pokoj_id",
     "pracownik_id"
   )
-values
-  (0, 1, 0),
+values (0, 1, 0),
   (1, 1, 1);
