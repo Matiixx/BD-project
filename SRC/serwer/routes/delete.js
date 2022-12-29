@@ -67,4 +67,18 @@ router.delete('/pracownik/:id', async (req, res) => {
   }
 })
 
+router.delete('/pracownik-pokoju/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const deleteRes = await pool.query('DELETE FROM projekt."Pracownicy_pokoju" WHERE "pracownicy_pokoju_id"=$1 RETURNING *', [id])
+    if (deleteRes.rowCount === 0) {
+      res.status(400).json({ "message": "Wrong id" })
+      return;
+    }
+    res.status(200).json(deleteRes.rows[0])
+  } catch (e) {
+    res.status(400).json({ "message": e.message });
+  }
+})
+
 module.exports = router;
