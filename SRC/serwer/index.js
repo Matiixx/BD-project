@@ -4,6 +4,7 @@ var cors = require('cors')
 const getRoutes = require('./routes/get')
 const postRoutes = require('./routes/post')
 const putRoutes = require('./routes/put')
+const deleteRoutes = require('./routes/delete')
 
 const app = express()
 app.use(express.json())
@@ -18,6 +19,9 @@ app.use('/0cichostepski/post', postRoutes)
 
 // -------------- PUT ROUTES -------------- 
 app.use('/0cichostepski/put', putRoutes)
+
+// -------------- DELETE ROUTES -------------- 
+app.use('/0cichostepski/delete', deleteRoutes)
 
 // -------------- RUN SERVER -------------- 
 app.listen(port, () => {
