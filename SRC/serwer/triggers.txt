@@ -204,3 +204,91 @@ BEFORE
 INSERT OR UPDATE
   ON "Pracownicy_pokoju" for each row execute procedure sprawdzDodaniePracownikaDoPokoju();
 ------------------------------------------------------------------------------------------------------------
+CREATE
+or replace function sprawdzUsuniecieUzytkownika() returns TRIGGER language plpgsql as $$
+BEGIN
+  IF EXISTS (SELECT * FROM projekt."Rezerwacja" where "uzytkownik_id"=OLD.uzytkownik_id AND (SELECT CURRENT_DATE) < "data_zakonczenia") THEN
+    raise EXCEPTION 'Uzytkownik ma otwarte rezerwacje';
+    return NULL;
+  END IF;
+  return OLD;
+END;
+$$;
+
+drop Trigger sprawdzUsuniecieUzytkownika on "Uzytkownik";
+
+CREATE Trigger sprawdzUsuniecieUzytkownika
+BEFORE
+DELETE
+  ON "Uzytkownik" for each row execute procedure sprawdzUsuniecieUzytkownika();
+------------------------------------------------------------------------------------------------------------
+CREATE
+or replace function sprawdzUsuniecieRezerwacji() returns TRIGGER language plpgsql as $$
+BEGIN
+  IF (SELECT CURRENT_DATE) > OLD.data_zakonczenia THEN
+    raise EXCEPTION 'Proba usuniecia starej rezerwacji';
+    RETURN NULL;
+  END IF;
+
+  IF (SELECT CURRENT_DATE) > OLD.data_rozpoczecia THEN
+    raise EXCEPTION 'Proba usuniecia aktywnej rezerwacji';
+    RETURN NULL;
+  END IF;
+
+  IF (OLD.data_rozpoczecia - (SELECT CURRENT_DATE)) <= 1 THEN
+    raise EXCEPTION 'Nie mozna usunuac rezerwacji mniej niz 24h przed rozpoczeciem';
+    RETURN NULL;
+  END IF;
+
+  DELETE FROM projekt."Platnosc" WHERE "rezerwacja_id"=OLD.rezerwacja_id;
+  DELETE FROM projekt."Zakwaterowanie" WHERE "rezerwacja_id"=OLD.rezerwacja_id;
+  return OLD;
+END;
+$$;
+
+drop Trigger sprawdzUsuniecieRezerwacji on "Rezerwacja";
+
+CREATE Trigger sprawdzUsuniecieRezerwacji
+BEFORE
+DELETE
+  ON "Rezerwacja" for each row execute procedure sprawdzUsuniecieRezerwacji();
+------------------------------------------------------------------------------------------------------------
+CREATE
+or replace function sprawdzUsunieciePokoju() returns TRIGGER language plpgsql as $$
+BEGIN
+  IF EXISTS (SELECT * FROM projekt."Rezerwacja" where "pokoj_id"=OLD.pokoj_id AND (SELECT CURRENT_DATE) < "data_zakonczenia") THEN
+    raise EXCEPTION 'Pokoj ma rezerwacje';
+    return NULL;
+  END IF;
+
+  DELETE FROM projekt."Pracownicy_pokoju" WHERE "pokoj_id"=OLD.pokoj_id;
+
+  ALTER TABLE projekt."Rezerwacja" DISABLE TRIGGER sprawdzUsuniecieRezerwacji;
+  DELETE FROM projekt."Rezerwacja" WHERE "pokoj_id"=OLD.pokoj_id;
+  ALTER TABLE projekt."Rezerwacja" ENABLE TRIGGER sprawdzUsuniecieRezerwacji;
+  return OLD;
+END;
+$$;
+
+drop Trigger sprawdzUsunieciePokoju on "Pokoj";
+
+CREATE Trigger sprawdzUsunieciePokoju
+BEFORE
+DELETE
+  ON "Pokoj" for each row execute procedure sprawdzUsunieciePokoju();
+------------------------------------------------------------------------------------------------------------
+CREATE
+or replace function sprawdzUsunieciePracownika() returns TRIGGER language plpgsql as $$
+BEGIN
+  DELETE FROM projekt."Pracownicy_pokoju" WHERE "pracownik_id"=OLD.pracownik_id;
+  return OLD;
+END;
+$$;
+
+drop Trigger sprawdzUsunieciePracownika on "Pracownik";
+
+CREATE Trigger sprawdzUsunieciePracownika
+BEFORE
+DELETE
+  ON "Pracownik" for each row execute procedure sprawdzUsunieciePracownika();
+------------------------------------------------------------------------------------------------------------
