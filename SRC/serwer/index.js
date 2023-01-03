@@ -5,6 +5,7 @@ const getRoutes = require('./routes/get')
 const postRoutes = require('./routes/post')
 const putRoutes = require('./routes/put')
 const deleteRoutes = require('./routes/delete')
+const sessionRoutes = require('./routes/sessions')
 
 const app = express()
 app.use(express.json())
@@ -22,6 +23,9 @@ app.use('/0cichostepski/put', putRoutes)
 
 // -------------- DELETE ROUTES -------------- 
 app.use('/0cichostepski/delete', deleteRoutes)
+
+// -------------- SESSION ROUTES -------------- 
+app.use('/0cichostepski/session', sessionRoutes)
 
 // -------------- RUN SERVER -------------- 
 app.listen(port, () => {
