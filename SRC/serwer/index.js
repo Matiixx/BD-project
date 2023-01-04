@@ -6,10 +6,13 @@ const postRoutes = require('./routes/post')
 const putRoutes = require('./routes/put')
 const deleteRoutes = require('./routes/delete')
 const sessionRoutes = require('./routes/sessions')
+const bodyParser = require('body-parser');
+
 
 const app = express()
 app.use(express.json())
 app.use(cors())
+app.use(bodyParser.json());
 const port = process.env.PORT || 3000;
 
 // -------------- GET ROUTES -------------- 

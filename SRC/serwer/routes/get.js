@@ -1,7 +1,9 @@
 const express = require("express");
 const pool = require("../db")
 const router = express.Router();
-const axios = require('axios')
+const axios = require('axios');
+const authenticateJWT = require('../utils/jwt')
+
 
 
 router.get('/', async (req, res) => {
@@ -24,14 +26,14 @@ router.get('/kategoria/:id', async (req, res) => {
   res.json(queryRes.rows[0])
 })
 
-router.get('/pokoj', async (req, res) => {
-  const queryRes = await pool.query('SELECT * FROM projekt."Pokoj";')
+router.get('/pokoj', authenticateJWT, async (req, res) => {
+  const queryRes = await pool.query('SELECT *, cena_doba FROM projekt."Pokoj" JOIN projekt."Kategoria" USING("kategoria_id") ;')
   res.json(queryRes.rows)
 })
 
-router.get('/pokoj/:id', async (req, res) => {
+router.get('/pokoj/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
-  const queryRes = await pool.query('SELECT * FROM projekt."Pokoj" where "pokoj_id"=$1;', [id])
+  const queryRes = await pool.query('SELECT *, cena_doba FROM projekt."Pokoj" JOIN projekt."Kategoria" USING("kategoria_id") where "pokoj_id"=$1;', [id])
   if (queryRes.rowCount === 0) {
     res.status(400).json({ "message": "Wrong id" })
     return;
@@ -97,13 +99,16 @@ router.get('/rezerwacja/:id', async (req, res) => {
   res.json({ ...rezerwacjaRes.rows[0], "platnosc": platnoscRes.rows[0], "uzytkownik": uzykownikRes.rows[0], "zakwaterowanie": zakwaterowanieRes.rows[0] })
 })
 
-router.get('/uzytkownik', async (req, res) => {
+router.get('/uzytkownik', authenticateJWT, async (req, res) => {
   const queryRes = await pool.query('SELECT * FROM projekt."Uzytkownik";')
   res.json(queryRes.rows)
 })
 
-router.get('/uzytkownik/:id', async (req, res) => {
-  const { id } = req.params;
+router.get('/uzytkownik/:id', authenticateJWT, async (req, res) => {
+  let { id } = req.params;
+  id = parseInt(id);
+  const { userId: tokenUserId } = req.user;
+  if (id != tokenUserId) res.status(401);
   const uzytkownikRes = await pool.query('SELECT * FROM projekt."Uzytkownik" where "uzytkownik_id"=$1;', [id])
   if (uzytkownikRes.rowCount === 0) {
     res.status(400).json({ "message": "Wrong id" })
