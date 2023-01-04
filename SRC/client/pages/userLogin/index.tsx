@@ -3,6 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Header from "../../components/Header";
 import useStore from "../../store/useStore";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 type LoginInputs = {
   email: string,
@@ -20,11 +21,17 @@ const UserLogin: NextPage = () => {
     const res = await loginUser(data.email, data.password)
     if (res) {
       setError("loginMessage", { message: "Zalogowano" })
-      router.push("./")
+      router.push("./userDashboard")
     }
     else
       setError("loginMessage", { message: "Błedne dane logowania" })
   };
+
+  // if (userEmail !== null) {
+  //   router.push("./userDashboard")
+  //   return;
+  // }
+
   return (
     <>
       <Header />
