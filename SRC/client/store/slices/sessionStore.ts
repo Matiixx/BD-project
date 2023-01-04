@@ -1,5 +1,4 @@
 import { StateCreator } from 'zustand'
-import { devtools, persist } from 'zustand/middleware'
 import axios from 'axios';
 
 const URI = 'http://pascal.fis.agh.edu.pl:3040/0cichostepski/'
