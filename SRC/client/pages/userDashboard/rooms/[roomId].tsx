@@ -57,13 +57,16 @@ const RoomWithId: NextPage = () => {
       router.push("/userLogin")
     }
 
-    if (userId !== null && roomId !== undefined) {
+    if (userId !== null && roomId !== undefined && userToken !== undefined) {
+      console.log(userId, roomId, userToken);
       axios.get(URI + 'get/pokoj/' + roomId, {
         headers: {
           Authorization: "Bearer " + userToken,
         }
       }).then(data => {
         setRoom(data.data)
+        console.log(data.data);
+
         for (const res of data.data.rezerwacja) {
           setReservedDays((prev) => [...prev, { start: getDateFromString(res.data_rozpoczecia), end: getDateFromString(res.data_zakonczenia) }])
         }
@@ -71,7 +74,7 @@ const RoomWithId: NextPage = () => {
         console.log(err);
       })
     }
-  }, [userId, roomId])
+  }, [userId, roomId, userToken])
 
   const onChangeCalendar = (dates) => {
     const [start, end] = dates;
@@ -111,36 +114,82 @@ const RoomWithId: NextPage = () => {
     <>
       <Header />
 
-      <div className="flex justify-center p-2 ">
-        <div className="w-2/3 bg-purple-200 shadow-lg p-4 border-4">
-          <h3>Pokoj nr {roomId}</h3>
-          <div>
-            <p>Wybierz date rezerwacji</p>
-            <DatePicker
-              selected={startDate}
-              onChange={onChangeCalendar}
-              excludeDateIntervals={reservedDays}
-              startDate={startDate}
-              endDate={endDate}
-              inline
-              selectsDisabledDaysInRange
-              selectsRange
-            />
-          </div>
-          <p>{startDate.toLocaleDateString()} - {endDate?.toLocaleDateString()}</p>
-          <div className=""><p>Wybierz liczbe gosci: <select className="p-2" onChange={(e) => { setGuestsNumber(parseInt(e.target.value)) }}>
-            {
-              Array.from({ length: room?.liczba_miejsc + 1 }, (_, i) => i > 0 ? <option key={i} value={i}>{i}</option> : null)
-            }
-          </select>
-          </p>
-          </div>
-          <p>Cena: {calcPrice()}</p>
-          <button onClick={handleReserveClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Zarezerwuj</button>
-          <div>
-            <p>{responseMessage}</p>
-          </div>
+      <div className="flex justify-center p-2">
+        <div className="w-2/3 bg-purple-200 shadow-lg border-2 border-gray-400 flex justify-center flex-col items-center">
+          {room !== undefined ? (
+            <>
+              {/* Header */}
+              <div className="w-full p-2 mb-2 bg-purple-100 shadow-lg">
+                <span className="text-2xl text-bold">Pokoj {room.numer_pokoju}</span>
+              </div>
+              {/* Opis */}
+              <div className="p-2 w-full">
+                <span className="text-2xl text-bold">Opis pokoju</span>
+                <div className="w-2/3 flex flex-col gap-4 py-5">
+                  <div className="w-full flex justify-between border-b-2 border-gray-400">
+                    <span>Kategoria</span>
+                    <span className="font-semibold">{room.nazwa_kategorii}</span>
+                  </div>
+                  <div className="w-full flex justify-between border-b-2 border-gray-400">
+                    <span>Powierzchnia</span>
+                    <span className="font-semibold">{room.powierzchnia}</span>
+                  </div>
+                  <div className="w-full flex justify-between border-b-2 border-gray-400">
+                    <span>Maksymalna liczba miejsc</span>
+                    <span className="font-semibold">{room.liczba_miejsc}</span>
+                  </div>
+                  <div className="w-full flex justify-between border-b-2 border-gray-400">
+                    <span>Cena za dobe</span>
+                    <span className="font-semibold">{room.cena_doba}</span>
+                  </div>
+                  <div className="w-full flex justify-between border-b-2 border-gray-400">
+                    <span>Klimatyzacja</span>
+                    <span className="font-semibold">{room.klimatyzacja ? "TAK" : "NIE"}</span>
+                  </div>
+                  <div className="w-full flex justify-between border-b-2 border-gray-400">
+                    <span>Balkon</span>
+                    <span className="font-semibold">{room.balkon ? "TAK" : "NIE"}</span>
+                  </div>
+                </div>
+              </div>
+              {/* Rezerwacja */}
+              <div className="w-full bg-purple-100 shadow-lg mt-2 pb-4">
+                <div className="w-full flex flex-col items-center">
+                  <h2 className="text-2xl text-bold mb-2">Rezerwacja</h2>
+                  <div className="flex flex-col items-center">
+                    <span className="">Wybierz datę rezerwacji</span>
+                    <DatePicker
+                      selected={startDate}
+                      onChange={onChangeCalendar}
+                      excludeDateIntervals={reservedDays}
+                      startDate={startDate}
+                      endDate={endDate}
+                      inline
+                      selectsDisabledDaysInRange
+                      selectsRange
+                    />
+                  </div>
+                  <p>{startDate.toLocaleDateString()} - {endDate?.toLocaleDateString()}</p>
+                  <div className="m-2">
+                    <p>Wybierz liczbe gosci:
+                      <select className="p-2" onChange={(e) => { setGuestsNumber(parseInt(e.target.value)) }}>
+                        {
+                          Array.from({ length: room.liczba_miejsc + 1 }, (_, i) => i > 0 ? <option key={i} value={i}>{i}</option> : null)
+                        }
+                      </select>
+                    </p>
+                  </div>
+                  <p className="m-2">Cena: {calcPrice()}</p>
+                  <button onClick={handleReserveClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Zarezerwuj</button>
+                  <div>
+                    <p>{responseMessage}</p>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : (null)}
         </div>
+
       </div>
     </>
   )

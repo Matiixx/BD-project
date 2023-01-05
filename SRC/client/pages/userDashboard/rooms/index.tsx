@@ -63,10 +63,10 @@ const Rooms: NextPage = () => {
                 key={el.pokoj_id}
               >
                 <p className="font-bold text-2xl">{el.nazwa_kategorii}</p>
-                <div className="flex items-center gap-2"><h4>Pokój</h4><span className="text-xl">{el.numer_pokoju}</span></div>
+                <div className="flex items-center gap-2"><h4 className="text-lg">Pokój {el.numer_pokoju}</h4></div>
                 <p>Liczba miejsc: {el.liczba_miejsc}</p>
                 <p><b className="text-lg">{el.cena_doba.toFixed(2)} PLN</b>{" "}/{" "}<span className="text-sm">noc</span></p>
-                <div onClick={() => router.push({ pathname: "./rooms/[roomId]", query: { roomId: el.pokoj_id } })} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Wybierz</div>
+                <div onClick={() => router.push({ pathname: "./rooms/[roomId]", query: { roomId: el.pokoj_id } })} className="bg-blue-500 cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Wybierz</div>
               </div>
             ))
           ) :
