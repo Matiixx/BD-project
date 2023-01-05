@@ -30,7 +30,7 @@ app.use('/0cichostepski/delete', deleteRoutes)
 // -------------- SESSION ROUTES -------------- 
 app.use('/0cichostepski/session', sessionRoutes)
 
-// -------------- RUN SERVER -------------- 
+// -------------- RUN SERVER --------------
 app.listen(port, () => {
   console.log(`Running on port ${port}`)
 })

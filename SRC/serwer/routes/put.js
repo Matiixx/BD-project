@@ -1,7 +1,8 @@
 const express = require("express");
 const pool = require("../db")
 const router = express.Router();
-const axios = require('axios')
+const axios = require('axios');
+const authenticateJWT = require("../utils/jwt");
 
 router.put('/', async (req, res) => {
   console.log("PUT");
@@ -23,7 +24,7 @@ router.put('/pokoj/:id', async (req, res) => {
   }
 })
 
-router.put('/rezerwacja/:id', async (req, res) => {
+router.put('/rezerwacja/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   const { uzytkownik_id, data_rozpoczecia, data_zakonczenia, pokoj_id, liczba_gosci } = req.body;
   try {

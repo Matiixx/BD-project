@@ -1,7 +1,8 @@
 const express = require("express");
 const pool = require("../db")
 const router = express.Router();
-const axios = require('axios')
+const axios = require('axios');
+const authenticateJWT = require("../utils/jwt");
 
 router.post('/', async (req, res) => {
   console.log("POST");
@@ -19,7 +20,7 @@ router.post('/pokoj', async (req, res) => {
   }
 })
 
-router.post('/rezerwacja', async (req, res) => {
+router.post('/rezerwacja', authenticateJWT, async (req, res) => {
   const { uzytkownik_id, data_rozpoczecia, data_zakonczenia, pokoj_id, liczba_gosci } = req.body;
   try {
     const addRes = await pool.query('INSERT INTO projekt."Rezerwacja"("uzytkownik_id","data_rozpoczecia","data_zakonczenia","pokoj_id","liczba_gosci") VALUES($1,$2,$3,$4,$5) RETURNING *;',

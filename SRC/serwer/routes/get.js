@@ -38,10 +38,11 @@ router.get('/pokoj/:id', authenticateJWT, async (req, res) => {
     res.status(400).json({ "message": "Wrong id" })
     return;
   }
-  const kategoriaRes = await axios.get('http://pascal.fis.agh.edu.pl:' + process.env.PORT + '/0cichostepski/get/kategoria/' + queryRes.rows[0].kategoria_id)
-  const rezerwacjaRes = await axios.get('http://pascal.fis.agh.edu.pl:' + process.env.PORT + '/0cichostepski/get/rezerwacja-pokoju/' + id)
+  const kategoriaRes = await pool.query('SELECT * FROM projekt."Kategoria" where "kategoria_id"=$1;', [queryRes.rows[0].kategoria_id])
+  let rezerwacjaRes = await pool.query('SELECT "rezerwacja_id", "data_rozpoczecia", "data_zakonczenia" FROM projekt."Rezerwacja" where "pokoj_id"=$1;', [id])
+
   const { kategoria_id, ...pokojRes } = queryRes.rows[0];
-  res.json({ ...pokojRes, "kategoria": kategoriaRes.data, "rezerwacja": rezerwacjaRes.data })
+  res.json({ ...pokojRes, "kategoria": kategoriaRes.rows[0], "rezerwacja": rezerwacjaRes.rows })
 })
 
 router.get('/pracownik', async (req, res) => {
@@ -86,7 +87,7 @@ router.get('/rezerwacja-pokoju/:id', async (req, res) => {
   res.json(queryRes.rows)
 })
 
-router.get('/rezerwacja/:id', async (req, res) => {
+router.get('/rezerwacja/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   const rezerwacjaRes = await pool.query('SELECT * FROM projekt."Rezerwacja" where "rezerwacja_id"=$1;', [id])
   if (rezerwacjaRes.rowCount === 0) {
@@ -96,7 +97,16 @@ router.get('/rezerwacja/:id', async (req, res) => {
   const platnoscRes = await pool.query('SELECT * FROM projekt."Platnosc" where "rezerwacja_id"=$1;', [id])
   const zakwaterowanieRes = await pool.query('SELECT * FROM projekt."Zakwaterowanie" where "rezerwacja_id"=$1;', [id])
   const uzykownikRes = await pool.query('SELECT "imie", "nazwisko" FROM projekt."Uzytkownik" where "uzytkownik_id"=$1;', [rezerwacjaRes.rows[0].uzytkownik_id])
-  res.json({ ...rezerwacjaRes.rows[0], "platnosc": platnoscRes.rows[0], "uzytkownik": uzykownikRes.rows[0], "zakwaterowanie": zakwaterowanieRes.rows[0] })
+  const rezerwacjaPokojuRes = await pool.query('SELECT * FROM projekt."Rezerwacja" where "pokoj_id"=$1', [rezerwacjaRes.rows[0].pokoj_id])
+  const pokojRes = await pool.query('SELECT * FROM projekt."Pokoj" where "pokoj_id"=$1', [rezerwacjaRes.rows[0].pokoj_id])
+  res.json({
+    ...rezerwacjaRes.rows[0],
+    "platnosc": platnoscRes.rows[0],
+    "uzytkownik": uzykownikRes.rows[0],
+    "zakwaterowanie": zakwaterowanieRes.rows[0],
+    "rezerwacja": rezerwacjaPokojuRes.rows,
+    "pokoj": pokojRes.rows[0]
+  })
 })
 
 router.get('/uzytkownik', authenticateJWT, async (req, res) => {
@@ -114,7 +124,7 @@ router.get('/uzytkownik/:id', authenticateJWT, async (req, res) => {
     res.status(400).json({ "message": "Wrong id" })
     return;
   }
-  const rezerwacjeRes = await pool.query('SELECT * FROM projekt."Rezerwacja" where "uzytkownik_id"=$1;', [id])
+  const rezerwacjeRes = await pool.query('SELECT *, kwota FROM projekt."Rezerwacja" JOIN projekt."Platnosc" USING(rezerwacja_id) where "uzytkownik_id"=$1 ORDER BY data_rezerwacji DESC;', [id])
   res.json({ ...uzytkownikRes.rows[0], "rezerwacja": rezerwacjeRes.rows })
 })
 
