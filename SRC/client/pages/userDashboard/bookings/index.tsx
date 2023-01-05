@@ -76,7 +76,9 @@ const Bookings: NextPage = () => {
         <div className="flex flex-wrap">
           {bookings ? (
             bookings.map((el, idx) => (
-              <div className="max-w-sm rounded overflow-hidden shadow-lg p-4 m-2 flex flex-row gap-4 w-1/3 min-w-[350px] justify-between bg-gray-100" key={idx}>
+              <div
+                onClick={() => router.push({ pathname: "./bookings/[bookingId]", query: { bookingId: el.rezerwacja_id } })}
+                className="max-w-sm rounded overflow-hidden shadow-lg p-4 m-2 flex flex-row gap-4 w-1/3 min-w-[350px] justify-between bg-gray-100" key={idx}>
                 <div className="flex flex-col gap-2 ">
                   <div>Rezerwacja nr: {el.rezerwacja_id}</div>
                   <div>Data rezerwacji: {getDateStringFromDBString(el.data_rezerwacji)}</div>

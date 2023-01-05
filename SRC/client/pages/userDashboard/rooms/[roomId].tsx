@@ -7,7 +7,6 @@ import useStore from "../../../store/useStore";
 import { addDays, dateDiff, getDateFromString, getDateStringFromDBString, getTimeFromString } from "../../../utils/dateUtils";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { prependOnceListener } from "process";
 
 const URI = 'http://pascal.fis.agh.edu.pl:3040/0cichostepski/'
 
@@ -103,7 +102,8 @@ const RoomWithId: NextPage = () => {
       setResponseMessage("Dodano rezerwacje!");
       setStartDate(new Date());
       setEndDate(null);
-      setReservedDays((prev) => ([...prev, { start: getDateFromString(data.data.data_rozpoczecia), end: getDateFromString(data.data.data_zakonczenia) }]));
+      setReservedDays((prev) => [...prev, { start: getDateFromString(data.data.data_rozpoczecia), end: addDays(getDateFromString(data.data.data_zakonczenia), -1) }])
+      // setReservedDays((prev) => ([...prev, { start: getDateFromString(data.data.data_rozpoczecia), end: getDateFromString(data.data.data_zakonczenia) }]));
     }).catch(err => {
       console.log(err.response);
       setResponseMessage("Blad podczas rezerwacji")
