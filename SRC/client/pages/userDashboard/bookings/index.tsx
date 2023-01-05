@@ -22,17 +22,17 @@ const Bookings: NextPage = () => {
   const router = useRouter();
 
   const userId = useStore((state) => state.userId);
-  const userEmail = useStore((state) => state.email);
   const userToken = useStore((state) => state.accessToken);
 
   const [bookings, setBookings] = useState<IBookings[]>(null);
 
   useEffect(() => {
-    if (userId === null) {
-      router.push("./userLogin")
+    if (userId === undefined) {
+      router.push("/userLogin")
+      return;
     }
 
-    if (userId !== undefined) {
+    if (userId !== null && userToken !== null) {
       axios.get(URI + 'get/uzytkownik/' + userId, {
         headers: {
           Authorization: "Bearer " + userToken,
@@ -44,7 +44,7 @@ const Bookings: NextPage = () => {
         console.log(err);
       })
     }
-  }, [userId])
+  }, [userId, userToken])
 
 
   useEffect(() => {

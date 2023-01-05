@@ -5,16 +5,17 @@ const URI = 'http://pascal.fis.agh.edu.pl:3040/0cichostepski/'
 
 export interface SessionSlice {
   email: string | null | undefined;
-  accessToken: string | null;
-  userType: string | null;
+  accessToken: string | null | undefined;
+  userType: string | null | undefined;
   userId: string | null | undefined;
   loginUser: (email: string, password: string) => Promise<boolean>;
   loadFromLocalStorage: () => void;
   logoutUser: () => Promise<void>;
 }
 
-
-const getLocalStorage = (key: string) => JSON.parse(window.localStorage.getItem(key));
+const getLocalStorage = (key: string) => {
+  return JSON.parse(window.localStorage.getItem(key));
+}
 const setLocalStorage = (key: string, value: string) =>
   window.localStorage.setItem(key, JSON.stringify(value));
 
@@ -25,10 +26,10 @@ export const useSessionSlice: StateCreator<
   SessionSlice
 > = (set, get) => ({
 
-  email: undefined,
+  email: null,
   accessToken: null,
   userType: null,
-  userId: undefined,
+  userId: null,
 
   loginUser: async (email, password) => {
     console.log(URI, email, password);
@@ -36,7 +37,7 @@ export const useSessionSlice: StateCreator<
       const res = await axios.post(URI + 'session/userLogin', {
         email, password
       })
-      set({ accessToken: res.data.accessToken, email })
+      set({ accessToken: res.data.accessToken, email, userType: res.data.role, userId: res.data.userId })
       setLocalStorage("email", email)
       setLocalStorage("accessToken", res.data.accessToken)
       setLocalStorage("userType", res.data.role)
@@ -54,15 +55,18 @@ export const useSessionSlice: StateCreator<
     const accessToken = getLocalStorage("accessToken")
     const userType = getLocalStorage("accessToken")
     const userId = getLocalStorage("userId")
-    if (email && accessToken && userType && userId)
+    if (email === "undefined" || accessToken === "undefined" || userType === "undefined" || userId === "undefined")
+      set({ email: undefined, accessToken: undefined, userType: undefined, userId: undefined })
+    else
       set({ email, accessToken, userType, userId })
+
   },
 
   logoutUser: async () => {
-    set({ accessToken: null, email: null })
-    setLocalStorage("email", null)
-    setLocalStorage("accessToken", null)
-    setLocalStorage("userType", null)
-    setLocalStorage("userId", null)
+    set({ accessToken: undefined, email: undefined, userId: undefined, userType: undefined })
+    setLocalStorage("email", "undefined")
+    setLocalStorage("accessToken", "undefined")
+    setLocalStorage("userType", "undefined")
+    setLocalStorage("userId", "undefined")
   }
 })

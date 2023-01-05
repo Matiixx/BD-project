@@ -53,11 +53,11 @@ const RoomWithId: NextPage = () => {
   const [responseMessage, setResponseMessage] = useState("");
 
   useEffect(() => {
-    if (userId === null) {
-      router.push("./userLogin")
+    if (userId === undefined) {
+      router.push("/userLogin")
     }
 
-    if (userId !== undefined && roomId !== undefined) {
+    if (userId !== null && roomId !== undefined) {
       axios.get(URI + 'get/pokoj/' + roomId, {
         headers: {
           Authorization: "Bearer " + userToken,
@@ -111,21 +111,22 @@ const RoomWithId: NextPage = () => {
     <>
       <Header />
 
-      <div>
-        <h3>Pokoj nr {roomId}</h3>
-
-        <div>
-          <p>Wybierz date rezerwacji</p>
-          <DatePicker
-            selected={startDate}
-            onChange={onChangeCalendar}
-            excludeDateIntervals={reservedDays}
-            startDate={startDate}
-            endDate={endDate}
-            inline
-            selectsDisabledDaysInRange
-            selectsRange
-          />
+      <div className="flex justify-center p-2 ">
+        <div className="w-2/3 bg-purple-200 shadow-lg p-4 border-4">
+          <h3>Pokoj nr {roomId}</h3>
+          <div>
+            <p>Wybierz date rezerwacji</p>
+            <DatePicker
+              selected={startDate}
+              onChange={onChangeCalendar}
+              excludeDateIntervals={reservedDays}
+              startDate={startDate}
+              endDate={endDate}
+              inline
+              selectsDisabledDaysInRange
+              selectsRange
+            />
+          </div>
           <p>{startDate.toLocaleDateString()} - {endDate?.toLocaleDateString()}</p>
           <div className=""><p>Wybierz liczbe gosci: <select className="p-2" onChange={(e) => { setGuestsNumber(parseInt(e.target.value)) }}>
             {
@@ -136,9 +137,9 @@ const RoomWithId: NextPage = () => {
           </div>
           <p>Cena: {calcPrice()}</p>
           <button onClick={handleReserveClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Zarezerwuj</button>
-        </div>
-        <div>
-          <p>{responseMessage}</p>
+          <div>
+            <p>{responseMessage}</p>
+          </div>
         </div>
       </div>
     </>

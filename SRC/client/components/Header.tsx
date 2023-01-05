@@ -8,11 +8,11 @@ export default function Header() {
 
   return (
     <header
-      className='w-full flex p-2 mb-4 align-middle '
+      className='w-full bg-white border-2 shadow-lg flex p-2 mb-4 min-h-[100px] sticky top-0 justify-between items-center '
     >
       {userEmail !== null && userEmail !== undefined ? (
         <>
-          <div>Logged in as: {userEmail}</div>
+          <div className='font-bold '>{userEmail}</div>
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={logout}>Wyloguj</button>
         </>
       ) : (

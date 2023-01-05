@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Header from "../../../components/Header";
 import useStore from "../../../store/useStore";
-import { getDateStringFromDBString, getTimeFromString } from "../../../utils/dateUtils";
 
 const URI = 'http://pascal.fis.agh.edu.pl:3040/0cichostepski/'
 
@@ -18,6 +17,7 @@ interface IRoom {
   balkon: boolean;
   klimatyzacja: boolean;
   cena_doba: number;
+  nazwa_kategorii: string;
 }
 
 
@@ -30,11 +30,12 @@ const Rooms: NextPage = () => {
   const [rooms, setRooms] = useState<IRoom[]>([])
 
   useEffect(() => {
-    if (userId === null) {
-      router.push("./userLogin")
+    if (userId === undefined) {
+      router.push("/userLogin")
+      return;
     }
 
-    if (userId !== undefined) {
+    if (userId !== null && userToken !== null) {
       axios.get(URI + 'get/pokoj', {
         headers: {
           Authorization: "Bearer " + userToken,
@@ -46,7 +47,7 @@ const Rooms: NextPage = () => {
         console.log(err);
       })
     }
-  }, [userId])
+  }, [userId, userToken])
 
 
   return (
@@ -54,18 +55,18 @@ const Rooms: NextPage = () => {
       <Header />
 
       <div>
-        <h3>Pokoje:</h3>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap justify-center">
           {rooms ? (
             rooms.map((el) => (
               <div
-                className="cursor-pointer max-w-sm rounded overflow-hidden shadow-lg p-4 m-2 flex flex-col gap-2 w-1/3 min-w-[350px] justify-between bg-green-100"
+                className="border-2 justify-around max-w-sm items-center rounded overflow-hidden p-4 m-2 flex flex-col gap-4 w-1/3 min-w-[350px] min-h-[300px] shadow-lg"
                 key={el.pokoj_id}
-                onClick={() => router.push({ pathname: "./rooms/[roomId]", query: { roomId: el.pokoj_id } })}>
-                <h4>Pokoj nr{el.numer_pokoju}</h4>
+              >
+                <p className="font-bold text-2xl">{el.nazwa_kategorii}</p>
+                <div className="flex items-center gap-2"><h4>Pokój</h4><span className="text-xl">{el.numer_pokoju}</span></div>
                 <p>Liczba miejsc: {el.liczba_miejsc}</p>
-                <p>Pietro: {el.pietro}</p>
-                <p><b>Cena za dobe: {el.cena_doba.toFixed(2)}</b></p>
+                <p><b className="text-lg">{el.cena_doba.toFixed(2)} PLN</b>{" "}/{" "}<span className="text-sm">noc</span></p>
+                <div onClick={() => router.push({ pathname: "./rooms/[roomId]", query: { roomId: el.pokoj_id } })} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Wybierz</div>
               </div>
             ))
           ) :
