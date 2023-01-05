@@ -13,7 +13,10 @@ export default function Header() {
       {userEmail !== null && userEmail !== undefined ? (
         <>
           <div className='font-bold '>{userEmail}</div>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={logout}>Wyloguj</button>
+          <div className='flex flex-row gap-2'>
+            <Link className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" href="/userDashboard">Dashboard</Link>
+            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={logout}>Wyloguj</button>
+          </div>
         </>
       ) : (
         <Link className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" href="/userLogin">Zaloguj jako uzytkownik</Link>
