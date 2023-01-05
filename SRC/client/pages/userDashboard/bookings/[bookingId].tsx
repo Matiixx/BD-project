@@ -11,11 +11,30 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const URI = 'http://pascal.fis.agh.edu.pl:3040/0cichostepski/'
 
-interface IReservation {
+interface IReservationInfo {
   rezerwacja_id: number;
   data_rozpoczecia: string;
   data_zakonczenia: string;
+  liczba_gosci: number
   pokoj: IRoom;
+  platnosc: IPay;
+  rezerwacja: IReservation[];
+  uzytkownik: IUser;
+}
+
+interface IUser {
+  imie: string;
+  nazwisko: string;
+}
+
+interface IReservation {
+  data_rezerwacji: Date;
+  data_rozpoczecia: Date;
+  data_zakonczenia: Date;
+  liczba_gosci: number;
+  pokoj_id: number;
+  rezerwacja_id: number;
+  uzytkownik_id: number;
 }
 
 interface IRoom {
@@ -28,6 +47,14 @@ interface IRoom {
   powierzchnia: number;
   balkon: boolean;
   klimatyzacja: boolean;
+}
+
+interface IPay {
+  czy_zaksiegowane: boolean;
+  data_platnosci: boolean;
+  kwota: number;
+  platnosc_id: number;
+  rezerwacja_id: number;
 }
 
 interface IReservedDays {
@@ -43,6 +70,7 @@ const BookingWithId: NextPage = () => {
   const userId = useStore((state) => state.userId);
   const userToken = useStore((state) => state.accessToken);
 
+  const [reservationInfo, setReservationInfo] = useState<IReservationInfo>()
   const [room, setRoom] = useState<IRoom>()
   const [reservedDays, setReservedDays] = useState<IReservedDays[]>([{ start: (new Date(0)), end: (addDays(new Date(), -1)) }]);
   const [startDate, setStartDate] = useState<Date>(new Date());
@@ -65,6 +93,7 @@ const BookingWithId: NextPage = () => {
       }).then(data => {
         console.log(data.data);
 
+        setReservationInfo(data.data)
         setStartDate(getDateFromString(data.data.data_rozpoczecia));
         setEndDate(getDateFromString(data.data.data_zakonczenia));
         setRoom(data.data.pokoj)
@@ -95,8 +124,8 @@ const BookingWithId: NextPage = () => {
 
     axios.put(URI + 'put/rezerwacja/' + bookingId, {
       uzytkownik_id: userId,
-      data_rozpoczecia: startDate,
-      data_zakonczenia: endDate,
+      data_rozpoczecia: addDays(startDate, 1),
+      data_zakonczenia: addDays(endDate, 1),
       pokoj_id: room.pokoj_id,
       liczba_gosci: guestsNumber
     }, {
@@ -105,9 +134,6 @@ const BookingWithId: NextPage = () => {
       }
     }).then(data => {
       setResponseMessage("Poprawna edycja rezerwacji!");
-      setStartDate(new Date());
-      setEndDate(null);
-      setReservedDays((prev) => ([...prev, { start: getDateFromString(data.data.data_rozpoczecia), end: getDateFromString(data.data.data_zakonczenia) }]));
     }).catch(err => {
       console.log(err.response);
       setResponseMessage("Blad podczas edycji rezerwacji")
@@ -137,7 +163,7 @@ const BookingWithId: NextPage = () => {
             <div className="m-2">
               {room !== undefined ? (
                 <p>Wybierz liczbe gosci:
-                  <select className="p-2" onChange={(e) => { setGuestsNumber(parseInt(e.target.value)) }}>
+                  <select className="p-2" onChange={(e) => { setGuestsNumber(parseInt(e.target.value)) }} defaultValue={reservationInfo?.liczba_gosci}>
                     {
                       Array.from({ length: room.liczba_miejsc + 1 }, (_, i) => i > 0 ? <option key={i} value={i}>{i}</option> : null)
                     }

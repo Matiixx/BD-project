@@ -17,6 +17,7 @@ interface IBookings {
   rezerwacja_id: number;
   uzytkownik_id: number;
   kwota: number;
+  numer_pokoju: number;
 }
 
 const Bookings: NextPage = () => {
@@ -72,15 +73,15 @@ const Bookings: NextPage = () => {
       <Header />
 
       <div>
-        <b>Twoje rezerwacje:</b>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap justify-center gap-4">
           {bookings ? (
             bookings.map((el, idx) => (
               <div
                 onClick={() => router.push({ pathname: "./bookings/[bookingId]", query: { bookingId: el.rezerwacja_id } })}
-                className="max-w-sm rounded overflow-hidden shadow-lg p-4 m-2 flex flex-row gap-4 w-1/3 min-w-[350px] justify-between bg-gray-100" key={idx}>
+                className="cursor-pointer max-w-sm rounded overflow-hidden shadow-lg p-4 m-2 flex flex-row gap-4 w-1/3 min-w-[350px] justify-between bg-gray-100" key={idx}>
                 <div className="flex flex-col gap-2 ">
                   <div>Rezerwacja nr: {el.rezerwacja_id}</div>
+                  <div>Pokoj nr: {el.numer_pokoju}</div>
                   <div>Data rezerwacji: {getDateStringFromDBString(el.data_rezerwacji)}</div>
                   <div>Rezerwacja: {getDateStringFromDBString(el.data_rozpoczecia)} - {getDateStringFromDBString(el.data_zakonczenia)}</div>
                   <div>Cena: {el.kwota}</div>
