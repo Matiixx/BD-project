@@ -124,7 +124,7 @@ router.get('/uzytkownik/:id', authenticateJWT, async (req, res) => {
     res.status(400).json({ "message": "Wrong id" })
     return;
   }
-  const rezerwacjeRes = await pool.query('SELECT *, kwota FROM projekt."Rezerwacja" JOIN projekt."Platnosc" USING(rezerwacja_id) where "uzytkownik_id"=$1 ORDER BY data_rezerwacji DESC;', [id])
+  const rezerwacjeRes = await pool.query('SELECT rezerwacja_id, data_rezerwacji, data_rozpoczecia, data_zakonczenia, kwota, numer_pokoju FROM projekt."Rezerwacja" JOIN projekt."Platnosc" USING(rezerwacja_id) JOIN projekt."Pokoj" USING(pokoj_id) where "uzytkownik_id"=$1 ORDER BY data_rezerwacji DESC;', [id])
   res.json({ ...uzytkownikRes.rows[0], "rezerwacja": rezerwacjeRes.rows })
 })
 
