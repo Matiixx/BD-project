@@ -85,7 +85,9 @@ const RoomWithId: NextPage = () => {
   const handleReserveClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.stopPropagation();
     e.preventDefault();
-    if (roomId === undefined && userId === undefined || userId === null) return;
+
+    if (roomId === undefined && userId === undefined || userId === null || endDate === null || !guestsNumber) return;
+    setResponseMessage("")
 
     axios.post(URI + 'post/rezerwacja', {
       uzytkownik_id: userId,
@@ -99,6 +101,8 @@ const RoomWithId: NextPage = () => {
       }
     }).then(data => {
       setResponseMessage("Dodano rezerwacje!");
+      setStartDate(new Date());
+      setEndDate(null);
       setReservedDays((prev) => ([...prev, { start: getDateFromString(data.data.data_rozpoczecia), end: getDateFromString(data.data.data_zakonczenia) }]));
     }).catch(err => {
       console.log(err.response);
@@ -114,7 +118,7 @@ const RoomWithId: NextPage = () => {
     <>
       <Header />
 
-      <div className="flex justify-center p-2">
+      <div className="flex justify-center p-2 mb-8">
         <div className="w-2/3 bg-purple-200 shadow-lg border-2 border-gray-400 flex justify-center flex-col items-center">
           {room !== undefined ? (
             <>
@@ -180,7 +184,7 @@ const RoomWithId: NextPage = () => {
                     </p>
                   </div>
                   <p className="m-2">Cena: {calcPrice()}</p>
-                  <button onClick={handleReserveClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Zarezerwuj</button>
+                  <button disabled={endDate === null || dateDiff(startDate, endDate) <= 0} onClick={handleReserveClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:bg-gray-400">Zarezerwuj</button>
                   <div>
                     <p>{responseMessage}</p>
                   </div>
