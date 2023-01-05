@@ -16,6 +16,7 @@ interface IBookings {
   pokoj_id: number;
   rezerwacja_id: number;
   uzytkownik_id: number;
+  kwota: number;
 }
 
 const Bookings: NextPage = () => {
@@ -80,8 +81,9 @@ const Bookings: NextPage = () => {
                   <div>Rezerwacja nr: {el.rezerwacja_id}</div>
                   <div>Data rezerwacji: {getDateStringFromDBString(el.data_rezerwacji)}</div>
                   <div>Rezerwacja: {getDateStringFromDBString(el.data_rozpoczecia)} - {getDateStringFromDBString(el.data_zakonczenia)}</div>
+                  <div>Cena: {el.kwota}</div>
                 </div>
-                {getTimeFromString(el.data_zakonczenia) > new Date().getTime() ? (
+                {getTimeFromString(el.data_rozpoczecia) > new Date().getTime() ? (
                   <div><button className="cursor-pointer text-red-500 font-bold" onClick={(e) => handleDeleteBooking(e, el.rezerwacja_id)}>X</button></div>
                 ) : null}
               </div>
