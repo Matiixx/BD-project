@@ -21,16 +21,15 @@ const UserDashboard: NextPage = () => {
     <>
       <Header />
       <div>
-        <h3>User Dashboard : {userId}</h3>
-        <div className="flex w-72 flex-col gap-2 p-2">
+        <div className="flex w-full flex-col gap-4 p-2 items-center mt-12">
           <Link
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold  py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="flex items-center justify-center w-1/4 h-32 text-xl bg-blue-500 hover:bg-blue-700 text-white font-bold  py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             href={"/userDashboard/bookings"}
           >
             Twoje rezerwacje
           </Link>
           <Link
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold  py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="flex items-center justify-center w-1/4 h-32 text-xl bg-blue-500 hover:bg-blue-700 text-white font-bold  py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             href={"/userDashboard/rooms"}
           >
             Przeglądaj pokoje
