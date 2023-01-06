@@ -31,13 +31,13 @@ interface ICategory {
 }
 
 interface IEditRoom {
-  pietro: number;
-  liczba_miejsc: number;
-  kategoria_id: number;
-  numer_pokoju: number;
-  powierzchnia: number;
-  balkon: boolean;
-  klimatyzacja: boolean;
+  pietro?: number;
+  liczba_miejsc?: number;
+  kategoria_id?: number;
+  numer_pokoju?: number;
+  powierzchnia?: number;
+  balkon?: boolean;
+  klimatyzacja?: boolean;
 }
 //numer_pokoju, pietro, liczba_miejsc, kategoria_id, powierzchnia, balkon, klimatyzacja
 const RoomWithId: NextPage = () => {
@@ -136,7 +136,7 @@ const RoomWithId: NextPage = () => {
               {/* Opis */}
               <div className="p-2 w-full">
                 <span className="text-2xl text-bold">Edytuj pokój</span>
-                <div className="w-2/3 flex flex-col gap-4 py-5">
+                <div className="w-full flex flex-col gap-4 p-5">
                   <div className="w-full flex justify-between border-b-2 border-gray-400">
                     <span>Numer pokoju</span>
                     <input className="w-1/3"
