@@ -36,6 +36,12 @@ const AdminDashboard: NextPage = () => {
           >
             Przeglądaj pokoje
           </Link>
+          <Link
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold  py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            href={"/adminDashboard/employees"}
+          >
+            Przeglądaj pracowników
+          </Link>
         </div>
       </div>
     </>
