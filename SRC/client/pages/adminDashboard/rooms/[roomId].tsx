@@ -56,12 +56,21 @@ const RoomWithId: NextPage = () => {
 
   const [responseMessage, setResponseMessage] = useState("");
 
+  const userRole = useStore(state => state.userType)
+  useEffect(() => {
+    if (userRole === null) return;
+    if (userRole !== "admin") {
+      router.push("/userDashboard");
+      return;
+    }
+  }, [userRole])
+
   useEffect(() => {
     if (userId === undefined) {
       router.push("/userLogin")
     }
 
-    if (userId !== null && roomId !== undefined && userToken !== undefined) {
+    if (userId !== null && roomId !== undefined && userToken !== undefined && userRole === "admin") {
       console.log(userId, roomId, userToken);
       axios.get(URI + 'get/pokoj/' + roomId, {
         headers: {

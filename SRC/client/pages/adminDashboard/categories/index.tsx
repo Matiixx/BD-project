@@ -24,13 +24,22 @@ const Categories: NextPage = () => {
 
   const [responseMessage, setResponseMessage] = useState<{ id: number, message: string }>({ id: -1, message: "" });
 
+  const userRole = useStore(state => state.userType)
+  useEffect(() => {
+    if (userRole === null) return;
+    if (userRole !== "admin") {
+      router.push("/userDashboard");
+      return;
+    }
+  }, [userRole])
+
   useEffect(() => {
     if (userId === undefined) {
       router.push("/userLogin")
       return;
     }
 
-    if (userId !== null && userToken !== null) {
+    if (userId !== null && userToken !== null && userRole === "admin") {
       axios.get(URI + 'get/kategoria', {
         headers: {
           Authorization: "Bearer " + userToken,

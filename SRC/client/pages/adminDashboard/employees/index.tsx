@@ -23,13 +23,22 @@ const Employees: NextPage = () => {
 
   const [employees, setEmployees] = useState<IEmployee[]>([])
 
+  const userRole = useStore(state => state.userType)
+  useEffect(() => {
+    if (userRole === null) return;
+    if (userRole !== "admin") {
+      router.push("/userDashboard");
+      return;
+    }
+  }, [userRole])
+
   useEffect(() => {
     if (userId === undefined) {
       router.push("/userLogin")
       return;
     }
 
-    if (userId !== null && userToken !== null) {
+    if (userId !== null && userToken !== null && userRole === "admin") {
       axios.get(URI + 'get/pracownik', {
         headers: {
           Authorization: "Bearer " + userToken,

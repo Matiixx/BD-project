@@ -10,6 +10,8 @@ const AdminDashboard: NextPage = () => {
   const router = useRouter();
 
   const userId = useStore((state) => state.userId);
+  const userRole = useStore(state => state.userType)
+
 
   useEffect(() => {
     if (userId === undefined) {
@@ -17,6 +19,14 @@ const AdminDashboard: NextPage = () => {
       return;
     }
   }, [userId]);
+
+  useEffect(() => {
+    if (userRole === null) return;
+    if (userRole !== "admin") {
+      router.push("/userDashboard");
+      return;
+    }
+  }, [userRole])
 
   return (
     <>

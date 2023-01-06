@@ -46,13 +46,22 @@ const EmployeeWithId: NextPage = () => {
 
   const [responseMessage, setResponseMessage] = useState("");
 
+  const userRole = useStore(state => state.userType)
+  useEffect(() => {
+    if (userRole === null) return;
+    if (userRole !== "admin") {
+      router.push("/userDashboard");
+      return;
+    }
+  }, [userRole])
+
   useEffect(() => {
 
     if (userId === undefined) {
       router.push("/userLogin")
     }
 
-    if (userId !== null && employeeId !== undefined && userToken !== undefined) {
+    if (userId !== null && employeeId !== undefined && userToken !== undefined && userRole === "admin") {
       axios.get(URI + 'get/pracownik/' + employeeId, {
         headers: {
           Authorization: "Bearer " + userToken,
@@ -77,6 +86,8 @@ const EmployeeWithId: NextPage = () => {
 
   const handleDeleteRoom = (pracownicy_pokoju_id: number) => {
     console.log(pracownicy_pokoju_id);
+
+    if (employee === undefined) return;
 
     axios.delete(URI + 'delete/pracownik-pokoju/' + pracownicy_pokoju_id, {
       headers: {

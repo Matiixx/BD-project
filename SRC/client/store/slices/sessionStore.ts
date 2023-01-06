@@ -76,7 +76,7 @@ export const useSessionSlice: StateCreator<
   loadFromLocalStorage: () => {
     const email = getLocalStorage("email")
     const accessToken = getLocalStorage("accessToken")
-    const userType = getLocalStorage("accessToken")
+    const userType = getLocalStorage("userType")
     const userId = getLocalStorage("userId")
     if (email === "undefined" || accessToken === "undefined" || userType === "undefined" || userId === "undefined")
       set({ email: undefined, accessToken: undefined, userType: undefined, userId: undefined })
