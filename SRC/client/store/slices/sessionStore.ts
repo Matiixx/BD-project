@@ -8,10 +8,19 @@ export interface SessionSlice {
   accessToken: string | null | undefined;
   userType: string | null | undefined;
   userId: string | null | undefined;
-  loginUser: (email: string, password: string) => Promise<boolean>;
+  loginUser: (email: string, password: string) => Promise<boolean | string>;
   loadFromLocalStorage: () => void;
   logoutUser: () => Promise<void>;
 }
+
+type RegisterInputs = {
+  imie: string,
+  nazwisko: string,
+  email: string,
+  haslo: string,
+  adres: string,
+  miasto: string,
+};
 
 const getLocalStorage = (key: string) => {
   return JSON.parse(window.localStorage.getItem(key));
@@ -43,11 +52,25 @@ export const useSessionSlice: StateCreator<
       setLocalStorage("userType", res.data.role)
       setLocalStorage("userId", res.data.userId)
       console.log(res.data);
+      return res.data.role;
     }
     catch (err) {
       return false;
     }
-    return true;
+  },
+
+  registerUser: async (inputs: RegisterInputs) => {
+    console.log(inputs);
+    return axios.post(URI + 'post/uzytkownik', {
+      ...inputs
+    }).then(d => {
+      console.log(d);
+      return true;
+    }).catch(err => {
+      console.log(err);
+      return false;
+    })
+
   },
 
   loadFromLocalStorage: () => {
