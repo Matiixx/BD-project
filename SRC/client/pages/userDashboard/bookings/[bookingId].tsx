@@ -143,10 +143,12 @@ const BookingWithId: NextPage = () => {
   return (
     <>
       <Header />
-      <div className="w-3/4">
-        <div className="w-full bg-purple-100 shadow-lg mt-2 pb-4">
+      <div className="w-full flex justify-center">
+        <div className="w-3/4 bg-purple-100 shadow-lg mt-2 pb-4">
           <div className="w-full flex flex-col items-center">
-            <h2 className="text-2xl text-bold mb-2">Edycja rezerwacji</h2>
+            <div className="w-full bg-purple-200 flex justify-center py-2 mb-2 shadow-lg">
+              <h2 className="text-2xl text-bold mb-4">Edycja rezerwacji {bookingId}</h2>
+            </div>
             <div className="flex flex-col items-center">
               <span className="">Popraw datę rezerwacji</span>
               <DatePicker
