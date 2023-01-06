@@ -151,6 +151,7 @@ CREATE or replace function sprawdzDodaniePracownikaDoPokoju() returns TRIGGER la
     SELECT *
     FROM projekt."Pracownicy_pokoju"
     where "pracownik_id" = NEW.pracownik_id
+      AND "pokoj_id" = NEW.pokoj_id
   ) THEN raise EXCEPTION 'Pracownik juz jest przypisany do tego pokoju';
 return NULL;
 END IF;
