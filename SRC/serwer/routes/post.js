@@ -54,7 +54,7 @@ router.post('/pracownik', async (req, res) => {
   }
 })
 
-router.post('/pokoj-pracownik', async (req, res) => {
+router.post('/pokoj-pracownik', authenticateJWT, async (req, res) => {
   const { pokoj_id, pracownik_id } = req.body;
   try {
     const addRes = await pool.query('INSERT INTO projekt."Pracownicy_pokoju"("pokoj_id","pracownik_id") VALUES($1,$2) RETURNING *;',

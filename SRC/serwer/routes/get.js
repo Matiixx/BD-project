@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
   console.log("GET");
 })
 
-router.get('/kategoria', async (req, res) => {
+router.get('/kategoria', authenticateJWT, async (req, res) => {
   const queryRes = await pool.query('SELECT * FROM projekt."Kategoria";')
   res.json(queryRes.rows)
 })
@@ -27,7 +27,7 @@ router.get('/kategoria/:id', async (req, res) => {
 })
 
 router.get('/pokoj', authenticateJWT, async (req, res) => {
-  const queryRes = await pool.query('SELECT *, cena_doba FROM projekt."Pokoj" JOIN projekt."Kategoria" USING("kategoria_id") ;')
+  const queryRes = await pool.query('SELECT *, cena_doba FROM projekt."Pokoj" JOIN projekt."Kategoria" USING("kategoria_id") ORDER BY pokoj_id ASC ;')
   res.json(queryRes.rows)
 })
 
@@ -45,20 +45,25 @@ router.get('/pokoj/:id', authenticateJWT, async (req, res) => {
   res.json({ ...pokojRes, "kategoria": kategoriaRes.rows[0], "rezerwacja": rezerwacjaRes.rows })
 })
 
-router.get('/pracownik', async (req, res) => {
-  const queryRes = await pool.query('SELECT * FROM projekt."Pracownik";')
+router.get('/pracownik', authenticateJWT, async (req, res) => {
+  const { rola } = req.user;
+  if (rola !== "admin") res.status(403)
+  const queryRes = await pool.query('SELECT email, imie, nazwisko, pracownik_id FROM projekt."Pracownik" ORDER BY pracownik_id ASC;')
   res.json(queryRes.rows)
 })
 
-router.get('/pracownik/:id', async (req, res) => {
+router.get('/pracownik/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
-  const queryRes = await pool.query('SELECT * FROM projekt."Pracownik" where "pracownik_id"=$1;', [id])
+  const { rola } = req.user;
+  if (rola !== "admin") res.status(403)
+
+  const queryRes = await pool.query('SELECT email, imie, nazwisko, pracownik_id FROM projekt."Pracownik" where "pracownik_id"=$1;', [id])
   if (queryRes.rowCount === 0) {
     res.status(400).json({ "message": "Wrong id" })
     return;
   }
-  const pracownikPokojuRes = await pool.query('SELECT "pokoj_id", "numer_pokoju" FROM projekt."Pracownicy_pokoju" join projekt."Pokoj" USING("pokoj_id") where "pracownik_id"=$1;', [id])
-  res.json({ ...queryRes.rows[0], "pokoje": pracownikPokojuRes.rows })
+  const pracownikPokojuRes = await pool.query('SELECT "pokoj_id", "numer_pokoju", "pracownicy_pokoju_id" FROM projekt."Pracownicy_pokoju" join projekt."Pokoj" USING("pokoj_id") where "pracownik_id"=$1;', [id])
+  res.json({ ...queryRes.rows[0], "pokoj": pracownikPokojuRes.rows })
 })
 
 router.get('/pracownik-pokoju/:id', async (req, res) => {

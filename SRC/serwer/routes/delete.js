@@ -1,5 +1,6 @@
 const express = require("express");
 const pool = require("../db");
+const authenticateJWT = require("../utils/jwt");
 const router = express.Router();
 
 router.delete('/', async (req, res) => {
@@ -67,8 +68,10 @@ router.delete('/pracownik/:id', async (req, res) => {
   }
 })
 
-router.delete('/pracownik-pokoju/:id', async (req, res) => {
+router.delete('/pracownik-pokoju/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
+  const { rola } = req.user;
+  if (rola !== "admin") res.status(403)
   try {
     const deleteRes = await pool.query('DELETE FROM projekt."Pracownicy_pokoju" WHERE "pracownicy_pokoju_id"=$1 RETURNING *', [id])
     if (deleteRes.rowCount === 0) {
