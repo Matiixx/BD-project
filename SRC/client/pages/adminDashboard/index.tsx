@@ -26,9 +26,9 @@ const AdminDashboard: NextPage = () => {
         <div className="flex w-72 flex-col gap-2 p-2">
           <Link
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold  py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            href={"adminDashboard/bookings"}
+            href={"adminDashboard/categories"}
           >
-            Twoje rezerwacje
+            Edytuj kategorie
           </Link>
           <Link
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold  py-2 px-4 rounded focus:outline-none focus:shadow-outline"
