@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Header from "../../../components/Header";
 import useStore from "../../../store/useStore";
-import { getDateStringFromDBString, getTimeFromString } from "../../../utils/dateUtils";
+import { dateDiff, getDateFromString, getDateStringFromDBString, getTimeFromString } from "../../../utils/dateUtils";
 
 const URI = 'http://pascal.fis.agh.edu.pl:3040/0cichostepski/'
 
@@ -74,7 +74,7 @@ const Bookings: NextPage = () => {
 
       <div>
         <div className="flex flex-wrap justify-center gap-4">
-          {bookings ? (
+          {bookings?.length ? (
             bookings.map((el, idx) => (
               <div
                 onClick={() => router.push({ pathname: "./bookings/[bookingId]", query: { bookingId: el.rezerwacja_id } })}
@@ -86,8 +86,8 @@ const Bookings: NextPage = () => {
                   <div>Rezerwacja: {getDateStringFromDBString(el.data_rozpoczecia)} - {getDateStringFromDBString(el.data_zakonczenia)}</div>
                   <div>Cena: {el.kwota}</div>
                 </div>
-                {getTimeFromString(el.data_rozpoczecia) > new Date().getTime() ? (
-                  <div><button className="cursor-pointer text-red-500 font-bold" onClick={(e) => handleDeleteBooking(e, el.rezerwacja_id)}>X</button></div>
+                {dateDiff(new Date(), getDateFromString(el.data_rozpoczecia)) >= 1 ? (
+                  <div><button className="cursor-pointer text-red-500 font-bold text-2xl" onClick={(e) => handleDeleteBooking(e, el.rezerwacja_id)}>X</button></div>
                 ) : null}
               </div>
             ))

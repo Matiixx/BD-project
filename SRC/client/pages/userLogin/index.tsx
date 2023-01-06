@@ -13,18 +13,22 @@ type LoginInputs = {
 
 const UserLogin: NextPage = () => {
   const router = useRouter();
-  const { register, handleSubmit, setError, formState: { errors } } = useForm<LoginInputs>();
+  const { register, handleSubmit, setError, formState: { errors }, clearErrors } = useForm<LoginInputs>();
   const loginUser = useStore((state) => state.loginUser)
 
   const handleLoginSubmit: SubmitHandler<LoginInputs> = async (data) => {
-    console.log(data);
     const res = await loginUser(data.email, data.password)
     if (res) {
+      clearErrors()
       setError("loginMessage", { message: "Zalogowano" })
-      router.push("./userDashboard")
+      if (res === 'gosc')
+        router.push("./userDashboard")
+      else if (res === 'admin')
+        router.push("./adminDashboard")
     }
     else
       setError("loginMessage", { message: "Błedne dane logowania" })
+
   };
 
   // if (userEmail !== null) {
@@ -37,8 +41,9 @@ const UserLogin: NextPage = () => {
       <Header />
 
       <div className="w-full flex flex-row justify-center gap-4">
-        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-          onSubmit={handleSubmit(handleLoginSubmit)}>
+        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-1/3"
+          onSubmit={handleSubmit(handleLoginSubmit)}
+          onChange={() => clearErrors()}>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Email
