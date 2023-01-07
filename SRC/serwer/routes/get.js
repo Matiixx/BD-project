@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/kategoria', authenticateJWT, async (req, res) => {
-  const queryRes = await pool.query('SELECT * FROM projekt."Kategoria";')
+  const queryRes = await pool.query('SELECT * FROM projekt."Kategoria" ORDER BY "cena_doba" ASC;')
   res.json(queryRes.rows)
 })
 
