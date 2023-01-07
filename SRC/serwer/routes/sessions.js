@@ -14,7 +14,7 @@ router.post('/userLogin', async (req, res) => {
 
   console.log(dbRes.rows[0]);
   if (dbRes.rows[0] && dbRes.rows[0].haslo === haslo) {
-    const accessToken = jwt.sign({ email, rola: dbRes.rows[0].typ_uzytkownika, userId: dbRes.rows[0].uzytkownik_id }, process.env.JWTSECRET);
+    const accessToken = jwt.sign({ email, role: dbRes.rows[0].typ_uzytkownika, userId: dbRes.rows[0].uzytkownik_id }, process.env.JWTSECRET);
     console.log(accessToken);
     res.json({
       accessToken,
@@ -26,9 +26,27 @@ router.post('/userLogin', async (req, res) => {
   }
 });
 
-router.post('/refresh-token', (req, res) => {
+router.post('/pracownikLogin', async (req, res) => {
+  const { email, password: haslo } = req.body;
 
-})
+  const dbRes = await pool.query('SELECT pracownik_id, haslo from projekt."Pracownik" WHERE "email"=$1;',
+    [email]);
+
+  console.log(dbRes.rows[0]);
+  if (dbRes.rows[0] && dbRes.rows[0].haslo === haslo) {
+    const accessToken = jwt.sign({ email, role: "pracownik", userId: dbRes.rows[0].pracownik_id }, process.env.JWTSECRET);
+    console.log(accessToken);
+    res.json({
+      accessToken,
+      role: "pracownik",
+      userId: dbRes.rows[0].pracownik_id
+    });
+  } else {
+    res.status(400).send('Username or password incorrect');
+  }
+});
+
+
 
 module.exports = router;
 
