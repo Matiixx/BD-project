@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import Header from "../../../components/Header";
 import useStore from "../../../store/useStore";
 import axios from 'axios';
+import Link from 'next/link';
 
 const URI = 'http://pascal.fis.agh.edu.pl:3040/0cichostepski/'
 
@@ -57,6 +58,13 @@ const Employees: NextPage = () => {
       <Header />
 
       <div>
+        <div className='w-3/4 m-auto'>
+          <Link
+            className="flex items-center justify-center w-1/3 h-24 text-xl bg-blue-500 hover:bg-blue-700 text-white font-bold  py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            href={"./employees/add"}
+          >
+            Dodaj pracownika
+          </Link></div>
         <div className="flex flex-wrap justify-center">
           {employees ? (
             employees.map((el) => (
