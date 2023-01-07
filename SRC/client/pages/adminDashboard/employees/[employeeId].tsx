@@ -156,7 +156,7 @@ const EmployeeWithId: NextPage = () => {
                   employee.pokoj.map(el => (
                     <div key={el.pokoj_id} className="p-2 w-full shadow-lg border-2 my-4 flex flex-row justify-between items-center">
                       <span className="text-lg w-12">{el.numer_pokoju}</span>
-                      <span>{el.obowiazki}</span>
+                      <span>{el.obowiazki || "-"}</span>
                       <button className="text-red-500 font-bold text-xl" onClick={() => handleDeleteRoom(el.pracownicy_pokoju_id)}>X</button>
                     </div>
                   ))
@@ -172,7 +172,7 @@ const EmployeeWithId: NextPage = () => {
                       <option key={el.pokoj_id} value={el.pokoj_id}>{el.numer_pokoju}</option>
                     ))}
                   </select>
-                  <input type={"text"} className="w-36 p-2" placeholder="Obowiazki" value={responsibilty} onChange={(e) => setResponsibilty(e.target.value)} />
+                  <input type={"text"} maxLength={30} className="w-36 p-2" placeholder="Obowiazki" value={responsibilty} onChange={(e) => setResponsibilty(e.target.value)} />
                   <button className="bg-blue-500 cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={handleAddRoomToEmployee}>
                     Dodaj
                   </button>

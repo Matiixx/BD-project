@@ -97,10 +97,10 @@ const Categories: NextPage = () => {
                 key={el.kategoria_id}
               >
                 <div className='flex gap-4 flex-col'>
-                  <input className="p-2 border-2 text-2xl" value={el.nazwa_kategorii} onChange={(e) => updateFields(el.kategoria_id, "nazwa_kategorii", e.target.value)} />
+                  <input className="p-2 border-2 text-2xl" value={el.nazwa_kategorii} maxLength={30} onChange={(e) => updateFields(el.kategoria_id, "nazwa_kategorii", e.target.value)} />
                   <input className="p-2 border-2 text-xl" type="number" step="0.01" value={el.cena_doba} onChange={(e) => updateFields(el.kategoria_id, "cena_doba", parseFloat(e.target.value))} />
                 </div>
-                <div onClick={() => { handleEditClick(el.kategoria_id) }} className="bg-blue-500 cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Edytuj</div>
+                <div onClick={() => { handleEditClick(el.kategoria_id) }} className="bg-blue-500 cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Zapisz</div>
                 {responseMessage.id === el.kategoria_id ? <p>{responseMessage.message}</p> : null}
               </div>
             ))

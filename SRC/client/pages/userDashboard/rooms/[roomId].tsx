@@ -143,7 +143,7 @@ const RoomWithId: NextPage = () => {
                     <span className="font-semibold">{room.liczba_miejsc}</span>
                   </div>
                   <div className="w-full flex justify-between border-b-2 border-gray-400">
-                    <span>Cena za dobe</span>
+                    <span>Cena za dobę</span>
                     <span className="font-semibold">{room.cena_doba}</span>
                   </div>
                   <div className="w-full flex justify-between border-b-2 border-gray-400">
