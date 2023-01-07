@@ -62,7 +62,7 @@ router.get('/pracownik/:id', authenticateJWT, async (req, res) => {
     res.status(400).json({ "message": "Wrong id" })
     return;
   }
-  const pracownikPokojuRes = await pool.query('SELECT "pokoj_id", "numer_pokoju", "pracownicy_pokoju_id" FROM projekt."Pracownicy_pokoju" join projekt."Pokoj" USING("pokoj_id") where "pracownik_id"=$1;', [id])
+  const pracownikPokojuRes = await pool.query('SELECT "pokoj_id", "numer_pokoju", "pracownicy_pokoju_id", "obowiazki" FROM projekt."Pracownicy_pokoju" join projekt."Pokoj" USING("pokoj_id") where "pracownik_id"=$1;', [id])
   res.json({ ...queryRes.rows[0], "pokoj": pracownikPokojuRes.rows })
 })
 

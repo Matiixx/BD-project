@@ -55,10 +55,10 @@ router.post('/pracownik', async (req, res) => {
 })
 
 router.post('/pokoj-pracownik', authenticateJWT, async (req, res) => {
-  const { pokoj_id, pracownik_id } = req.body;
+  const { pokoj_id, pracownik_id, obowiazki } = req.body;
   try {
-    const addRes = await pool.query('INSERT INTO projekt."Pracownicy_pokoju"("pokoj_id","pracownik_id") VALUES($1,$2) RETURNING *;',
-      [pokoj_id, pracownik_id])
+    const addRes = await pool.query('INSERT INTO projekt."Pracownicy_pokoju"("pokoj_id","pracownik_id","obowiazki") VALUES($1,$2,$3) RETURNING *;',
+      [pokoj_id, pracownik_id, obowiazki])
     res.json(addRes.rows[0])
   } catch (e) {
     res.status(400).json({ "message": e.message })

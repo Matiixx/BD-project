@@ -12,6 +12,7 @@ interface IRoom {
   pokoj_id: number;
   numer_pokoju: number;
   pracownicy_pokoju_id: number;
+  obowiazki: string;
 }
 
 interface IEmployee {
@@ -42,6 +43,7 @@ const EmployeeWithId: NextPage = () => {
 
   const [roomIdToAdd, setRoomIdToAdd] = useState<number>(1);
   const [roomToAdd, setRoomToAdd] = useState<number>(1);
+  const [responsibilty, setResponsibilty] = useState("");
 
 
   const [responseMessage, setResponseMessage] = useState("");
@@ -67,6 +69,8 @@ const EmployeeWithId: NextPage = () => {
           Authorization: "Bearer " + userToken,
         }
       }).then(data => {
+        console.log(data.data);
+
         setEmployee(data.data)
       }).catch(err => {
         console.log(err);
@@ -114,16 +118,17 @@ const EmployeeWithId: NextPage = () => {
     axios.post(URI + "post/pokoj-pracownik", {
       pracownik_id: employeeId,
       pokoj_id: roomIdToAdd,
+      obowiazki: responsibilty,
     }, {
       headers: {
         Authorization: "Bearer " + userToken,
       },
     }).then(data => {
       setResponseMessage("Dodano")
-      console.log(data);
-
+      setResponsibilty("")
       let newRooms = employee;
-      newRooms?.pokoj.push({ pokoj_id: data.data.pokoj_id, numer_pokoju: roomToAdd, pracownicy_pokoju_id: data.data.pracownicy_pokoju_id });
+      newRooms.pokoj.push({ pokoj_id: data.data.pokoj_id, numer_pokoju: roomToAdd, pracownicy_pokoju_id: data.data.pracownicy_pokoju_id, obowiazki: responsibilty });
+      newRooms.pokoj.sort((a, b) => a.numer_pokoju - b.numer_pokoju);
       setEmployee(newRooms)
     }).catch(err => {
       console.log(err.response);
@@ -145,12 +150,13 @@ const EmployeeWithId: NextPage = () => {
                 <span className="text-2xl text-bold"><h4 className="text-lg"><span className='font-bold'>{employee.nazwisko}</span> {employee.imie}</h4></span>
               </div>
               {/* Lista */}
-              <div className="p-2 w-full">
+              <div className="p-2 px-10 w-full">
                 <p>Lista przypisanych pokoi</p>
                 {
                   employee.pokoj.map(el => (
-                    <div key={el.pokoj_id} className="p-2 w-2/4 shadow-lg border-2 my-4 flex flex-row justify-between items-center">
-                      <span className="text-lg">{el.numer_pokoju}</span>
+                    <div key={el.pokoj_id} className="p-2 w-full shadow-lg border-2 my-4 flex flex-row justify-between items-center">
+                      <span className="text-lg w-12">{el.numer_pokoju}</span>
+                      <span>{el.obowiazki}</span>
                       <button className="text-red-500 font-bold text-xl" onClick={() => handleDeleteRoom(el.pracownicy_pokoju_id)}>X</button>
                     </div>
                   ))
@@ -166,6 +172,7 @@ const EmployeeWithId: NextPage = () => {
                       <option key={el.pokoj_id} value={el.pokoj_id}>{el.numer_pokoju}</option>
                     ))}
                   </select>
+                  <input type={"text"} className="w-36 p-2" placeholder="Obowiazki" value={responsibilty} onChange={(e) => setResponsibilty(e.target.value)} />
                   <button className="bg-blue-500 cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={handleAddRoomToEmployee}>
                     Dodaj
                   </button>
