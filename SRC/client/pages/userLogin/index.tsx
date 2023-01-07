@@ -4,6 +4,7 @@ import Header from "../../components/Header";
 import useStore from "../../store/useStore";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Link from "next/link";
 
 type LoginInputs = {
   email: string,
@@ -31,16 +32,11 @@ const UserLogin: NextPage = () => {
 
   };
 
-  // if (userEmail !== null) {
-  //   router.push("./userDashboard")
-  //   return;
-  // }
-
   return (
     <>
       <Header />
 
-      <div className="w-full flex flex-row justify-center gap-4">
+      <div className="w-full flex flex-col justify-center items-center gap-4">
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-1/3"
           onSubmit={handleSubmit(handleLoginSubmit)}
           onChange={() => clearErrors()}>
@@ -64,10 +60,13 @@ const UserLogin: NextPage = () => {
           </div>
           <div className="mb-4 flex justify-center flex-col items-center">
             <input type={"submit"} value="Zaloguj" className="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" />
-            {/* <button></button> */}
             {errors.loginMessage && <span>{errors.loginMessage.message}</span>}
           </div>
         </form>
+        <div>
+          <Link className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" href="/employeeLogin">Zaloguj jako pracownik</Link>
+
+        </div>
       </div>
     </>
   );

@@ -103,10 +103,9 @@ const RoomWithId: NextPage = () => {
       setStartDate(new Date());
       setEndDate(null);
       setReservedDays((prev) => [...prev, { start: getDateFromString(data.data.data_rozpoczecia), end: addDays(getDateFromString(data.data.data_zakonczenia), -1) }])
-      // setReservedDays((prev) => ([...prev, { start: getDateFromString(data.data.data_rozpoczecia), end: getDateFromString(data.data.data_zakonczenia) }]));
     }).catch(err => {
       console.log(err.response);
-      setResponseMessage("Blad podczas rezerwacji")
+      setResponseMessage(err.response.data.message)
     })
   }
 
@@ -144,7 +143,7 @@ const RoomWithId: NextPage = () => {
                   </div>
                   <div className="w-full flex justify-between border-b-2 border-gray-400">
                     <span>Cena za dobę</span>
-                    <span className="font-semibold">{room.cena_doba}</span>
+                    <span className="font-semibold">{room.cena_doba.toFixed(2)} PLN</span>
                   </div>
                   <div className="w-full flex justify-between border-b-2 border-gray-400">
                     <span>Klimatyzacja</span>

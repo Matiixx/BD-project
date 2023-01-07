@@ -84,7 +84,7 @@ const Bookings: NextPage = () => {
                   <div>Pokoj nr: {el.numer_pokoju}</div>
                   <div>Data rezerwacji: {getDateStringFromDBString(el.data_rezerwacji)}</div>
                   <div>Rezerwacja: {getDateStringFromDBString(el.data_rozpoczecia)} - {getDateStringFromDBString(el.data_zakonczenia)}</div>
-                  <div>Cena: {el.kwota}</div>
+                  <div>Cena: {el.kwota.toFixed(2)} PLN</div>
                 </div>
                 {dateDiff(new Date(), getDateFromString(el.data_rozpoczecia)) >= 1 ? (
                   <div><button className="cursor-pointer text-red-500 font-bold text-2xl" onClick={(e) => handleDeleteBooking(e, el.rezerwacja_id)}>X</button></div>
