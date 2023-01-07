@@ -11,6 +11,7 @@ export interface SessionSlice {
   loginUser: (email: string, password: string) => Promise<boolean | string>;
   loadFromLocalStorage: () => void;
   logoutUser: () => Promise<void>;
+  loginEmployee: (email: string, password: string) => Promise<boolean | string>
 }
 
 type RegisterInputs = {
@@ -91,5 +92,21 @@ export const useSessionSlice: StateCreator<
     setLocalStorage("accessToken", "undefined")
     setLocalStorage("userType", "undefined")
     setLocalStorage("userId", "undefined")
+  },
+
+  loginEmployee: async (email, password) => {
+    return axios.post(URI + 'session/pracownikLogin', {
+      email, password
+    }).then(data => {
+      console.log(data);
+      set({ accessToken: data.data.accessToken, email, userType: data.data.role, userId: data.data.userId })
+      setLocalStorage("email", email)
+      setLocalStorage("accessToken", data.data.accessToken)
+      setLocalStorage("userType", data.data.role)
+      setLocalStorage("userId", data.data.userId)
+      return true;
+    }).catch(err => {
+      return false;
+    })
   }
 })

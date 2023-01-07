@@ -15,7 +15,7 @@ export default function Header() {
         <>
           <div className='font-bold '>{userEmail}</div>
           <div className='flex flex-row gap-2'>
-            <Link className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" href={userRole === "gosc" ? "/userDashboard" : "/adminDashboard"}>Dashboard</Link>
+            <Link className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" href={userRole === "gosc" ? "/userDashboard" : userRole === "admin" ? "/adminDashboard" : "/employeeDashboard"}>Dashboard</Link>
             <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={logout}>Wyloguj</button>
           </div>
         </>
