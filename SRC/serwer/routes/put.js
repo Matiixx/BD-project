@@ -12,8 +12,8 @@ router.put('/', async (req, res) => {
 router.put('/pokoj/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   const { numer_pokoju, pietro, liczba_miejsc, kategoria_id, powierzchnia, balkon, klimatyzacja } = req.body;
-  const { rola } = req.user;
-  if (rola !== "admin") res.status(403)
+  const { role } = req.user;
+  if (role !== "admin") res.status(403)
   try {
     const updateRes = await pool.query('UPDATE projekt."Pokoj" SET "numer_pokoju"=$1, "pietro"=$2, "liczba_miejsc"=$3, "kategoria_id"=$4, "powierzchnia"=$5, "balkon"=$6, "klimatyzacja"=$7 where "pokoj_id"=$8 RETURNING *;',
       [numer_pokoju, pietro, liczba_miejsc, kategoria_id, powierzchnia, balkon, klimatyzacja, id])
@@ -61,8 +61,8 @@ router.put('/uzytkownik/:id', async (req, res) => {
 router.put('/kategoria/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   const { nazwa_kategorii, cena_doba } = req.body;
-  const { rola } = req.user;
-  if (rola !== "admin") res.status(403)
+  const { role } = req.user;
+  if (role !== "admin") res.status(403)
   try {
     const updateRes = await pool.query('UPDATE projekt."Kategoria" SET "nazwa_kategorii"=$1,"cena_doba"=$2 WHERE "kategoria_id"=$3 RETURNING *;',
       [nazwa_kategorii, cena_doba, id])

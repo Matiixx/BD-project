@@ -46,16 +46,16 @@ router.get('/pokoj/:id', authenticateJWT, async (req, res) => {
 })
 
 router.get('/pracownik', authenticateJWT, async (req, res) => {
-  const { rola } = req.user;
-  if (rola !== "admin") res.status(403)
+  const { role } = req.user;
+  if (role !== "admin") res.status(403)
   const queryRes = await pool.query('SELECT email, imie, nazwisko, pracownik_id FROM projekt."Pracownik" ORDER BY pracownik_id ASC;')
   res.json(queryRes.rows)
 })
 
 router.get('/pracownik/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
-  const { rola } = req.user;
-  if (rola !== "admin") res.status(403)
+  const { role } = req.user;
+  if (role !== "admin" && role !== "pracownik") res.status(403)
 
   const queryRes = await pool.query('SELECT email, imie, nazwisko, pracownik_id FROM projekt."Pracownik" where "pracownik_id"=$1;', [id])
   if (queryRes.rowCount === 0) {

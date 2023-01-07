@@ -11,8 +11,8 @@ router.post('/', async (req, res) => {
 
 router.post('/pokoj', authenticateJWT, async (req, res) => {
   const { numer_pokoju, pietro, liczba_miejsc, kategoria_id, powierzchnia, balkon, klimatyzacja } = req.body;
-  const { rola } = req.user;
-  if (rola !== "admin") res.status(403)
+  const { role } = req.user;
+  if (role !== "admin") res.status(403)
   try {
     const addRes = await pool.query('INSERT INTO projekt."Pokoj"("numer_pokoju", "pietro", "liczba_miejsc", "kategoria_id", "powierzchnia", "balkon", "klimatyzacja") VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING *;',
       [numer_pokoju, pietro, liczba_miejsc, kategoria_id, powierzchnia, balkon, klimatyzacja])
@@ -47,8 +47,8 @@ router.post('/uzytkownik', async (req, res) => {
 
 router.post('/pracownik', authenticateJWT, async (req, res) => {
   const { email, haslo, imie, nazwisko } = req.body;
-  const { rola } = req.user;
-  if (rola !== "admin") res.status(403)
+  const { role } = req.user;
+  if (role !== "admin") res.status(403)
   try {
     const addRes = await pool.query('INSERT INTO projekt."Pracownik"("email","haslo","imie","nazwisko") VALUES($1,$2,$3,$4) RETURNING *;',
       [email, haslo, imie, nazwisko])
@@ -60,8 +60,8 @@ router.post('/pracownik', authenticateJWT, async (req, res) => {
 
 router.post('/pokoj-pracownik', authenticateJWT, async (req, res) => {
   const { pokoj_id, pracownik_id, obowiazki } = req.body;
-  const { rola } = req.user;
-  if (rola !== "admin") res.status(403)
+  const { role } = req.user;
+  if (role !== "admin") res.status(403)
   try {
     const addRes = await pool.query('INSERT INTO projekt."Pracownicy_pokoju"("pokoj_id","pracownik_id","obowiazki") VALUES($1,$2,$3) RETURNING *;',
       [pokoj_id, pracownik_id, obowiazki])
@@ -73,8 +73,8 @@ router.post('/pokoj-pracownik', authenticateJWT, async (req, res) => {
 
 router.post('/kategoria', async (req, res) => {
   const { nazwa_kategorii, cena_doba } = req.body;
-  const { rola } = req.user;
-  if (rola !== "admin") res.status(403)
+  const { role } = req.user;
+  if (role !== "admin") res.status(403)
   try {
     const addRes = await pool.query('INSERT INTO projekt."Kategoria"("nazwa_kategorii","cena_doba") VALUES($1,$2) RETURNING *;',
       [nazwa_kategorii, cena_doba])
