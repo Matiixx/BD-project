@@ -3978,604 +3978,604 @@ values (
     'Robertazzi'
   );
 --------------------------------------------------------------------------------------------------------------------------
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (2, 48);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (3, 15);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (4, 15);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (5, 48);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (6, 10);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (7, 4);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (8, 23);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (9, 29);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (10, 21);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (11, 13);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (12, 13);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (13, 5);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (14, 17);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (15, 37);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (16, 29);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (17, 43);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (18, 14);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (19, 11);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (20, 47);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (21, 43);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (22, 49);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (23, 34);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (24, 36);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (25, 44);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (26, 15);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (27, 7);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (28, 14);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (29, 37);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (30, 43);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (31, 50);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (32, 37);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (33, 19);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (34, 2);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (35, 25);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (36, 46);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (37, 40);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (38, 43);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (39, 44);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (40, 29);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (41, 2);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (42, 2);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (43, 26);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (44, 41);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (45, 41);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (46, 44);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (47, 19);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (48, 44);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (49, 30);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (50, 49);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (51, 23);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (52, 36);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (53, 15);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (54, 48);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (55, 48);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (56, 14);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (57, 27);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (58, 28);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (59, 12);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (60, 48);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (61, 39);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (62, 45);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (63, 47);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (64, 8);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (65, 29);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (66, 29);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (67, 28);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (68, 28);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (69, 44);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (70, 23);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (71, 30);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (72, 15);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (73, 11);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (74, 7);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (75, 17);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (76, 47);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (77, 5);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (78, 23);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (79, 16);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (80, 22);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (81, 8);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (82, 25);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (83, 33);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (84, 35);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (85, 6);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (86, 41);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (87, 13);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (88, 37);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (89, 22);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (90, 27);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (91, 16);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (92, 14);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (93, 22);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (94, 26);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (95, 38);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (96, 6);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (97, 15);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (98, 31);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (99, 48);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (100, 27);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (1, 38);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (2, 45);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (3, 50);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (4, 31);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (5, 33);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (6, 13);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (7, 29);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (8, 39);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (9, 15);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (10, 32);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (11, 16);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (12, 32);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (13, 18);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (14, 6);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (15, 11);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (16, 35);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (17, 1);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (18, 8);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (19, 13);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (20, 40);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (21, 28);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (22, 33);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (23, 11);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (24, 42);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (25, 6);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (26, 6);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (27, 11);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (28, 26);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (29, 20);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (30, 7);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (31, 26);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (32, 33);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (33, 50);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (34, 12);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (35, 15);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (36, 14);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (37, 48);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (38, 6);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (39, 35);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (40, 3);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (41, 4);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (42, 42);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (43, 23);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (44, 38);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (45, 19);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (46, 46);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (47, 23);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (48, 14);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (49, 21);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (50, 48);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (51, 34);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (52, 7);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (53, 42);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (54, 12);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (55, 33);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (56, 34);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (57, 19);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (58, 19);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (59, 12);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (60, 32);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (61, 30);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (62, 47);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (63, 31);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (64, 18);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (65, 34);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (66, 49);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (67, 25);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (68, 44);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (69, 20);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (70, 11);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (71, 17);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (72, 8);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (73, 18);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (74, 38);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (75, 33);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (76, 15);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (77, 8);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (78, 23);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (79, 28);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (80, 16);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (81, 46);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (82, 19);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (83, 23);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (84, 15);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (85, 8);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (86, 1);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (87, 22);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (88, 32);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (89, 26);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (90, 44);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (91, 31);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (92, 24);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (93, 31);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (94, 49);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (95, 41);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (96, 41);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (97, 48);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (98, 21);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (99, 32);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (100, 30);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (1, 43);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (2, 11);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (3, 6);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (4, 28);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (5, 3);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (6, 10);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (7, 30);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (8, 40);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (9, 33);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (10, 7);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (11, 18);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (12, 50);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (13, 3);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (14, 9);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (15, 37);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (16, 48);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (17, 46);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (18, 4);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (19, 47);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (20, 30);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (21, 29);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (22, 27);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (23, 10);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (24, 46);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (25, 13);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (26, 28);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (27, 34);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (28, 50);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (29, 47);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (30, 34);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (31, 45);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (32, 34);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (33, 33);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (34, 14);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (35, 38);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (36, 29);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (37, 16);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (38, 25);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (39, 50);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (40, 9);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (41, 38);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (42, 38);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (43, 11);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (44, 11);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (45, 3);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (46, 5);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (47, 10);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (48, 37);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (49, 31);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (50, 23);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (51, 13);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (52, 23);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (53, 30);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (54, 43);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (55, 43);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (56, 49);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (57, 40);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (58, 19);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (59, 42);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (60, 48);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (61, 5);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (62, 4);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (63, 29);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (64, 42);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (65, 10);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (66, 39);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (67, 12);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (68, 46);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (69, 40);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (70, 6);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (71, 27);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (72, 29);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (73, 36);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (74, 33);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (75, 30);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (76, 27);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (77, 31);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (78, 31);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (79, 8);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (80, 35);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (81, 9);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (82, 14);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (83, 32);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (84, 47);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (85, 5);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (86, 26);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (87, 2);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (88, 3);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (89, 2);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (90, 6);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (91, 7);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (92, 25);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (93, 9);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (94, 3);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (95, 16);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (96, 28);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (97, 25);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (98, 40);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (99, 10);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (100, 23);
-insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id")
-values (1, 22);
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (2, 22, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (3, 9, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (4, 5, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (5, 2, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (6, 25, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (7, 13, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (8, 39, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (9, 28, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (10, 9, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (11, 43, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (12, 8, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (13, 17, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (14, 26, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (15, 50, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (16, 1, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (17, 35, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (18, 5, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (19, 14, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (20, 7, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (21, 36, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (22, 37, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (23, 39, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (24, 11, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (25, 20, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (26, 32, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (27, 11, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (28, 27, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (29, 36, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (30, 14, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (31, 16, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (32, 1, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (33, 26, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (34, 34, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (35, 24, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (36, 29, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (37, 34, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (38, 13, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (39, 17, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (40, 8, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (41, 46, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (42, 15, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (43, 10, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (44, 20, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (45, 16, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (46, 44, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (47, 30, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (48, 11, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (49, 4, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (50, 4, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (51, 21, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (52, 11, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (53, 9, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (54, 28, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (55, 50, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (56, 40, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (57, 11, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (58, 7, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (59, 15, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (60, 4, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (61, 12, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (62, 35, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (63, 20, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (64, 4, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (65, 48, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (66, 31, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (67, 47, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (68, 45, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (69, 14, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (70, 36, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (71, 6, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (72, 15, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (73, 29, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (74, 18, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (75, 40, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (76, 49, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (77, 37, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (78, 49, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (79, 31, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (80, 16, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (81, 38, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (82, 5, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (83, 33, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (84, 10, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (85, 3, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (86, 31, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (87, 50, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (88, 50, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (89, 49, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (90, 17, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (91, 42, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (92, 11, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (93, 16, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (94, 1, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (95, 43, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (96, 50, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (97, 47, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (98, 15, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (99, 15, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (100, 18, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (1, 27, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (2, 27, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (3, 43, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (4, 16, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (5, 23, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (6, 2, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (7, 2, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (8, 32, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (9, 33, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (10, 12, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (11, 5, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (12, 37, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (13, 37, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (14, 17, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (15, 42, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (16, 11, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (17, 8, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (18, 45, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (19, 41, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (20, 5, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (21, 18, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (22, 8, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (23, 18, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (24, 22, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (25, 33, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (26, 6, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (27, 13, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (28, 5, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (29, 27, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (30, 30, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (31, 9, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (32, 16, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (33, 5, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (34, 19, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (35, 9, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (36, 40, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (37, 31, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (38, 17, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (39, 13, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (40, 30, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (41, 20, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (42, 1, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (43, 27, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (44, 3, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (45, 38, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (46, 20, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (47, 27, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (48, 32, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (49, 41, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (50, 5, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (51, 11, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (52, 41, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (53, 50, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (54, 24, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (55, 18, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (56, 40, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (57, 2, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (58, 8, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (59, 48, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (60, 29, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (61, 47, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (62, 49, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (63, 16, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (64, 46, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (65, 23, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (66, 47, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (67, 24, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (68, 6, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (69, 15, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (70, 24, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (71, 13, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (72, 35, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (73, 36, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (74, 5, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (75, 23, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (76, 9, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (77, 18, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (78, 22, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (79, 41, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (80, 12, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (81, 43, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (82, 47, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (83, 22, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (84, 39, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (85, 33, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (86, 46, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (87, 24, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (88, 26, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (89, 29, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (90, 45, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (91, 36, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (92, 33, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (93, 44, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (94, 24, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (95, 5, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (96, 14, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (97, 17, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (98, 18, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (99, 25, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (100, 9, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (1, 29, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (2, 35, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (3, 39, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (4, 10, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (5, 12, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (6, 8, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (7, 35, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (8, 10, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (9, 16, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (10, 5, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (11, 9, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (12, 28, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (13, 14, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (14, 19, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (15, 24, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (16, 16, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (17, 2, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (18, 11, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (19, 33, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (20, 48, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (21, 25, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (22, 6, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (23, 13, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (24, 3, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (25, 42, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (26, 11, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (27, 47, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (28, 1, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (29, 2, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (30, 48, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (31, 1, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (32, 10, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (33, 40, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (34, 15, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (35, 43, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (36, 24, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (37, 1, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (38, 29, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (39, 22, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (40, 11, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (41, 20, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (42, 34, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (43, 24, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (44, 9, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (45, 21, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (46, 35, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (47, 24, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (48, 11, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (49, 6, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (50, 30, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (51, 42, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (52, 6, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (53, 40, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (54, 13, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (55, 48, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (56, 2, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (57, 35, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (58, 3, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (59, 12, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (60, 21, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (61, 7, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (62, 12, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (63, 18, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (64, 31, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (65, 50, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (66, 38, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (67, 12, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (68, 26, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (69, 49, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (70, 43, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (71, 15, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (72, 34, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (73, 15, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (74, 43, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (75, 14, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (76, 27, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (77, 21, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (78, 26, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (79, 10, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (80, 8, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (81, 17, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (82, 13, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (83, 43, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (84, 25, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (85, 9, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (86, 8, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (87, 1, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (88, 28, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (89, 50, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (90, 7, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (91, 42, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (92, 14, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (93, 17, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (94, 17, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (95, 7, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (96, 8, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (97, 7, 'Wymiana pościeli');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (98, 39, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (99, 12, 'Wymiana ręczników');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (100, 36, 'Odkurzanie');
+insert into "Pracownicy_pokoju" ("pokoj_id", "pracownik_id", "obowiazki")
+values (1, 32, 'Odkurzanie');
 --------------------------------------------------------------------------------------------------------------------------

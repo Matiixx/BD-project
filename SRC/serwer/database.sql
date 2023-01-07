@@ -68,7 +68,8 @@ ADD PRIMARY KEY("pracownik_id");
 CREATE TABLE "Pracownicy_pokoju"(
     "pracownicy_pokoju_id" SERIAL,
     "pokoj_id" INTEGER NOT NULL,
-    "pracownik_id" INTEGER NOT NULL
+    "pracownik_id" INTEGER NOT NULL,
+    "obowiazki" VARCHAR(255)
 );
 ALTER TABLE "Pracownicy_pokoju"
 ADD PRIMARY KEY("pracownicy_pokoju_id");
