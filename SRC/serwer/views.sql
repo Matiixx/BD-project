@@ -7,6 +7,9 @@ SELECT uzytkownik_id,
 from projekt."Uzytkownik"
   JOIN projekt."Rezerwacja" USING(uzytkownik_id)
 WHERE typ_uzytkownika <> 'admin'
+  AND (
+    SELECT CURRENT_DATE
+  ) > data_rozpoczecia
 GROUP BY uzytkownik_id
 HAVING count(rezerwacja_id) > 0
 ORDER BY ilosc_rezerwacji DESC

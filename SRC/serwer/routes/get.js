@@ -165,4 +165,11 @@ router.get('/platnosc/:id', authenticateJWT, async (req, res) => {
   res.json(queryRes.rows[0])
 })
 
+router.get('/ranking-uzytkownikow', authenticateJWT, async (req, res) => {
+  const { role } = req.user;
+  if (role !== "admin") res.status(403)
+  const queryRes = await pool.query('SELECT * FROM projekt.ranking_uzytkownikow;')
+  res.json(queryRes.rows)
+})
+
 module.exports = router;
