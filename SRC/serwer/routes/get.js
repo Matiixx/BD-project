@@ -16,7 +16,7 @@ router.get('/kategoria', authenticateJWT, async (req, res) => {
   res.json(queryRes.rows)
 })
 
-router.get('/kategoria/:id', async (req, res) => {
+router.get('/kategoria/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   const queryRes = await pool.query('SELECT * FROM projekt."Kategoria" where "kategoria_id"=$1;', [id])
   if (queryRes.rowCount === 0) {
@@ -66,7 +66,7 @@ router.get('/pracownik/:id', authenticateJWT, async (req, res) => {
   res.json({ ...queryRes.rows[0], "pokoj": pracownikPokojuRes.rows })
 })
 
-router.get('/pracownik-pokoju/:id', async (req, res) => {
+router.get('/pracownik-pokoju/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   const pracownikPokojuRes = await pool.query('SELECT "pracownik_id", "imie", "nazwisko" FROM projekt."Pracownicy_pokoju" join projekt."Pracownik" USING("pracownik_id") where "pokoj_id"=$1;', [id])
   if (pracownikPokojuRes.rowCount === 0) {
@@ -77,12 +77,12 @@ router.get('/pracownik-pokoju/:id', async (req, res) => {
   res.json({ "pracownicy": pracownikPokojuRes.rows, "pokoj": pokojRes.rows[0] })
 })
 
-router.get('/rezerwacja', async (req, res) => {
+router.get('/rezerwacja', authenticateJWT, async (req, res) => {
   const queryRes = await pool.query('SELECT * FROM projekt."Rezerwacja";')
   res.json(queryRes.rows)
 })
 
-router.get('/rezerwacja-pokoju/:id', async (req, res) => {
+router.get('/rezerwacja-pokoju/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   let queryRes = await pool.query('SELECT "rezerwacja_id", "data_rozpoczecia", "data_zakonczenia" FROM projekt."Rezerwacja" where "pokoj_id"=$1;', [id])
   if (queryRes.rowCount === 0) {
@@ -133,12 +133,14 @@ router.get('/uzytkownik/:id', authenticateJWT, async (req, res) => {
   res.json({ ...uzytkownikRes.rows[0], "rezerwacja": rezerwacjeRes.rows })
 })
 
-router.get('/zakwaterowanie', async (req, res) => {
-  const queryRes = await pool.query('SELECT * FROM projekt."Zakwaterowanie";')
+router.get('/zakwaterowanie', authenticateJWT, async (req, res) => {
+  const { role } = req.user;
+  if (role !== "admin") res.status(403)
+  const queryRes = await pool.query('SELECT * FROM projekt.rezerwacje_bez_zakwaterowania;')
   res.json(queryRes.rows)
 })
 
-router.get('/zakwaterowanie/:id', async (req, res) => {
+router.get('/zakwaterowanie/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   const queryRes = await pool.query('SELECT * FROM projekt."Zakwaterowanie" where "zakwaterowanie_id"=$1;', [id])
   if (queryRes.rowCount === 0) {
@@ -148,12 +150,12 @@ router.get('/zakwaterowanie/:id', async (req, res) => {
   res.json(queryRes.rows)
 })
 
-router.get('/platnosc', async (req, res) => {
+router.get('/platnosc', authenticateJWT, async (req, res) => {
   const queryRes = await pool.query('SELECT * FROM projekt."Platnosc";')
   res.json(queryRes.rows)
 })
 
-router.get('/platnosc/:id', async (req, res) => {
+router.get('/platnosc/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   const queryRes = await pool.query('SELECT * FROM projekt."Platnosc" where "platnosc_id"=$1;', [id])
   if (queryRes.rowCount === 0) {

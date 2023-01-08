@@ -75,12 +75,14 @@ router.put('/kategoria/:id', authenticateJWT, async (req, res) => {
   }
 })
 
-router.put('/zakwaterowanie/:id', async (req, res) => {
+router.put('/zakwaterowanie/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
-  const { rezerwacja_id, czy_zakwaterowany } = req.body;
+  const { czy_zakwaterowany } = req.body;
+  const { role } = req.user;
+  if (role !== "admin") res.status(403)
   try {
-    const updateRes = await pool.query('UPDATE projekt."Zakwaterowanie" SET "rezerwacja_id"=$1,"czy_zakwaterowany"=$2 WHERE "zakwaterowanie_id"=$3 RETURNING *;',
-      [rezerwacja_id, czy_zakwaterowany, id])
+    const updateRes = await pool.query('UPDATE projekt."Zakwaterowanie" SET "czy_zakwaterowany"=$1 WHERE "zakwaterowanie_id"=$2 RETURNING *;',
+      [czy_zakwaterowany, id])
     res.json(updateRes.rows[0])
   } catch (e) {
     res.status(400).json({ "message": e.message })
