@@ -89,4 +89,18 @@ router.put('/zakwaterowanie/:id', authenticateJWT, async (req, res) => {
   }
 })
 
+router.put('/platnosc/:id', authenticateJWT, async (req, res) => {
+  const { id } = req.params;
+  const { czy_zaksiegowane, data } = req.body;
+  const { role } = req.user;
+  if (role !== "admin") res.status(403)
+  try {
+    const updateRes = await pool.query('UPDATE projekt."Platnosc" SET "czy_zaksiegowane"=$1, "data_platnosci"=$2 WHERE "platnosc_id"=$3 RETURNING *;',
+      [czy_zaksiegowane, data, id])
+    res.json(updateRes.rows[0])
+  } catch (e) {
+    res.status(400).json({ "message": e.message })
+  }
+})
+
 module.exports = router;

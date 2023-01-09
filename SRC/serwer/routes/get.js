@@ -172,4 +172,11 @@ router.get('/ranking-uzytkownikow', authenticateJWT, async (req, res) => {
   res.json(queryRes.rows)
 })
 
+router.get('/niezaksiegowane-platnosci', authenticateJWT, async (req, res) => {
+  const { role } = req.user;
+  if (role !== "admin") res.status(403)
+  const queryRes = await pool.query('SELECT * FROM projekt.platnosci_bez_zaksiegowania;')
+  res.json(queryRes.rows)
+})
+
 module.exports = router;
