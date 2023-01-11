@@ -45,6 +45,9 @@ SELECT *,
     SELECT *
     from projekt."Rezerwacja" as r
     WHERE r.pokoj_id = p.pokoj_id
+      AND (
+        SELECT CURRENT_DATE
+      ) < r."data_zakonczenia"
   ) as czy_ma_rezerwacje
 FROM projekt."Pokoj" as p
   JOIN projekt."Kategoria" as k USING("kategoria_id")
