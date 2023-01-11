@@ -31,6 +31,13 @@ router.get('/pokoj', authenticateJWT, async (req, res) => {
   res.json(queryRes.rows)
 })
 
+router.get('/lista-pokoj', authenticateJWT, async (req, res) => {
+  const { role } = req.user;
+  if (role !== "admin") res.status(403)
+  const queryRes = await pool.query('SELECT * from projekt.lista_pokoi ORDER BY pokoj_id ASC ;')
+  res.json(queryRes.rows)
+})
+
 router.get('/pokoj/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   const queryRes = await pool.query('SELECT *, cena_doba FROM projekt."Pokoj" JOIN projekt."Kategoria" USING("kategoria_id") where "pokoj_id"=$1;', [id])

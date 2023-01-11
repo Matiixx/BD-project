@@ -20,6 +20,7 @@ interface IRoom {
   klimatyzacja: boolean;
   cena_doba: number;
   nazwa_kategorii: string;
+  czy_ma_rezerwacje: boolean;
 }
 
 const Rooms: NextPage = () => {
@@ -46,18 +47,30 @@ const Rooms: NextPage = () => {
     }
 
     if (userId !== null && userToken !== null && userRole === "admin") {
-      axios.get(URI + 'get/pokoj', {
+      axios.get(URI + 'get/lista-pokoj', {
         headers: {
           Authorization: "Bearer " + userToken,
         }
       }).then(data => {
-        console.log(data);
         setRooms(data.data)
       }).catch(err => {
         console.log(err);
       })
     }
   }, [userId, userToken])
+
+  const handleDeleteRoom = async (room_id: number) => {
+    console.log(room_id);
+    axios.delete(URI + 'delete/pokoj/' + room_id, {
+      headers: {
+        Authorization: "Bearer " + userToken,
+      }
+    }).then(_ => {
+      setRooms(prev => prev.filter((el) => el.pokoj_id !== room_id))
+    }).catch(err => {
+      console.log(err);
+    })
+  }
 
   return (
     <>
@@ -84,6 +97,8 @@ const Rooms: NextPage = () => {
                 <p>Liczba miejsc: {el.liczba_miejsc}</p>
                 <p><b className="text-lg">{el.cena_doba.toFixed(2)} PLN</b>{" "}/{" "}<span className="text-sm">noc</span></p>
                 <div onClick={() => router.push({ pathname: "./rooms/[roomId]", query: { roomId: el.pokoj_id } })} className="bg-blue-500 cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Edytuj</div>
+                {el.czy_ma_rezerwacje === false ? <div onClick={() => handleDeleteRoom(el.pokoj_id)} className="bg-red-500 cursor-pointer hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Usuń</div> : null}
+
               </div>
             ))
           ) :

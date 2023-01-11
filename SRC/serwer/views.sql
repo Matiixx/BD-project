@@ -38,3 +38,15 @@ FROM projekt."Platnosc"
   JOIN projekt."Rezerwacja" USING(rezerwacja_id)
 WHERE czy_zaksiegowane = false;
 -----------------------------------------------------------
+DROP VIEW IF EXISTS lista_pokoi;
+CREATE VIEW lista_pokoi AS
+SELECT *,
+  EXISTS (
+    SELECT *
+    from projekt."Rezerwacja" as r
+    WHERE r.pokoj_id = p.pokoj_id
+  ) as czy_ma_rezerwacje
+FROM projekt."Pokoj" as p
+  JOIN projekt."Kategoria" as k USING("kategoria_id")
+ORDER BY pokoj_id ASC;
+-----------------------------------------------------------
