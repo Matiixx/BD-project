@@ -53,6 +53,22 @@ const Employees: NextPage = () => {
     }
   }, [userId, userToken])
 
+  const handleDeleteEmployee = async (employee_id: number) => {
+    console.log(employee_id);
+
+    axios.delete(URI + 'delete/pracownik/' + employee_id, {
+      headers: {
+        Authorization: "Bearer " + userToken,
+      }
+    }).then(data => {
+      console.log(data);
+      setEmployees(prev => prev.filter(el => el.pracownik_id !== employee_id));
+    }).catch(err => {
+      console.log(err);
+    })
+
+  }
+
   return (
     <>
       <Header />
@@ -75,6 +91,7 @@ const Employees: NextPage = () => {
               >
                 <div className="w-1/4"><h4 className="text-lg"><span className='font-bold'>{el.nazwisko}</span> {el.imie}</h4></div>
                 <div onClick={() => router.push({ pathname: "./employees/[employeeId]", query: { employeeId: el.pracownik_id } })} className="bg-blue-500 cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Pokaż</div>
+                <div onClick={() => handleDeleteEmployee(el.pracownik_id)} className="bg-red-500 cursor-pointer hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Usuń</div>
               </div>
             ))
           ) :
