@@ -59,12 +59,19 @@ CREATE Trigger edytujPlatnoscDoRezerwacji
 AFTER
 UPDATE ON "Rezerwacja" for each row execute procedure edytujPlatnoscDoRezerwacji();
 ------------------------------------------------------------------------------------------------------------
-CREATE or replace function sprawdzNowyPokoj() returns TRIGGER language plpgsql as $$ BEGIN IF EXISTS (
-    SELECT *
-    FROM projekt."Pokoj"
-    where "numer_pokoju" = NEW.numer_pokoju
-      AND "pokoj_id" != NEW.pokoj_id
-  ) THEN RAISE EXCEPTION 'Pokoj o podanym numerze juz istnieje';
+CREATE or replace function sprawdzNowyPokoj() returns TRIGGER language plpgsql as $$ BEGIN IF new.powierzchnia < 0 THEN raise EXCEPTION 'Zla powierzchnnia';
+END IF;
+IF NEW.kategoria_id NOT IN (
+  SELECT kategoria_id
+  FROM "Kategoria"
+) THEN raise EXCEPTION 'Zla kategoria';
+end if;
+IF EXISTS (
+  SELECT *
+  FROM projekt."Pokoj"
+  where "numer_pokoju" = NEW.numer_pokoju
+    AND "pokoj_id" != NEW.pokoj_id
+) THEN RAISE EXCEPTION 'Pokoj o podanym numerze juz istnieje';
 RETURN NULL;
 END IF;
 return NEW;
