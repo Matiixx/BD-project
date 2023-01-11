@@ -115,15 +115,18 @@ router.get('/rezerwacja/:id', authenticateJWT, async (req, res) => {
 })
 
 router.get('/uzytkownik', authenticateJWT, async (req, res) => {
-  const queryRes = await pool.query('SELECT * FROM projekt."Uzytkownik";')
+  const { role } = req.user;
+  if (role !== "admin") res.status(403)
+  const queryRes = await pool.query('SELECT uzytkownik_id, imie, nazwisko, email, adres, miasto FROM projekt."Uzytkownik" where typ_uzytkownika NOT LIKE \'admin\';')
   res.json(queryRes.rows)
 })
 
 router.get('/uzytkownik/:id', authenticateJWT, async (req, res) => {
   let { id } = req.params;
+  const { role } = req.user;
   id = parseInt(id);
   const { userId: tokenUserId } = req.user;
-  if (id != tokenUserId) res.status(401);
+  if (id != tokenUserId && role !== "admin") res.status(401);
   const uzytkownikRes = await pool.query('SELECT * FROM projekt."Uzytkownik" where "uzytkownik_id"=$1;', [id])
   if (uzytkownikRes.rowCount === 0) {
     res.status(400).json({ "message": "Wrong id" })
