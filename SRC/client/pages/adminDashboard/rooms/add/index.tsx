@@ -65,7 +65,6 @@ const AddRoom: NextPage = () => {
   }, [userId, userToken])
 
   const handleAddRoom = () => {
-    console.log(room);
     if (!room.powierzchnia) return;
 
     axios.post(URI + "post/pokoj", {
@@ -81,7 +80,6 @@ const AddRoom: NextPage = () => {
     }).catch(err => {
       console.log(err);
       setResponseMessage(err.response.data.message)
-
     })
   }
 

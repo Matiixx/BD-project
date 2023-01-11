@@ -60,7 +60,6 @@ const Rooms: NextPage = () => {
   }, [userId, userToken])
 
   const handleDeleteRoom = async (room_id: number) => {
-    console.log(room_id);
     axios.delete(URI + 'delete/pokoj/' + room_id, {
       headers: {
         Authorization: "Bearer " + userToken,

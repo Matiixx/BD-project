@@ -92,7 +92,7 @@ const Accomodations: NextPage = () => {
                   <span className="w-1/4">{el.rezerwacja_id}</span>
                   <span className="w-1/4">{getDateFromString(el.data_rozpoczecia).toLocaleDateString()}</span>
                   <span className="w-1/6">{el.kwota}</span>
-                  <button className='w-1/6 text-left' onClick={() => handleSetPayment(el.platnosc_id)}>Zaksięguj</button>
+                  <button className="w-1/6 text-left" onClick={() => handleSetPayment(el.platnosc_id)}>Zaksięguj</button>
                 </div>
               ))
             }
