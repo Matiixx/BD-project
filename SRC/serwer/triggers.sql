@@ -164,21 +164,21 @@ INSERT
   OR
 UPDATE ON "Pracownicy_pokoju" for each row execute procedure sprawdzDodaniePracownikaDoPokoju();
 ------------------------------------------------------------------------------------------------------------
-CREATE or replace function sprawdzUsuniecieUzytkownika() returns TRIGGER language plpgsql as $$ BEGIN IF EXISTS (
-    SELECT *
-    FROM projekt."Rezerwacja"
-    where "uzytkownik_id" = OLD.uzytkownik_id
-      AND (
-        SELECT CURRENT_DATE
-      ) < "data_zakonczenia"
-  ) THEN raise EXCEPTION 'Uzytkownik ma otwarte rezerwacje';
-return NULL;
-END IF;
-return OLD;
-END;
-$$;
-drop Trigger sprawdzUsuniecieUzytkownika on "Uzytkownik";
-CREATE Trigger sprawdzUsuniecieUzytkownika BEFORE DELETE ON "Uzytkownik" for each row execute procedure sprawdzUsuniecieUzytkownika();
+-- CREATE or replace function sprawdzUsuniecieUzytkownika() returns TRIGGER language plpgsql as $$ BEGIN IF EXISTS (
+--     SELECT *
+--     FROM projekt."Rezerwacja"
+--     where "uzytkownik_id" = OLD.uzytkownik_id
+--       AND (
+--         SELECT CURRENT_DATE
+--       ) < "data_zakonczenia"
+--   ) THEN raise EXCEPTION 'Uzytkownik ma otwarte rezerwacje';
+-- return NULL;
+-- END IF;
+-- return OLD;
+-- END;
+-- $$;
+-- drop Trigger sprawdzUsuniecieUzytkownika on "Uzytkownik";
+-- CREATE Trigger sprawdzUsuniecieUzytkownika BEFORE DELETE ON "Uzytkownik" for each row execute procedure sprawdzUsuniecieUzytkownika();
 ------------------------------------------------------------------------------------------------------------
 CREATE or replace function sprawdzUsuniecieRezerwacji() returns TRIGGER language plpgsql as $$ BEGIN IF (
     SELECT CURRENT_DATE

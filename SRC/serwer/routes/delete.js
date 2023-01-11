@@ -8,20 +8,20 @@ router.delete('/', async (req, res) => {
   res.send("DELETE")
 })
 
-router.delete('/uzytkownik/:id', async (req, res) => {
-  const { id } = req.params;
-  try {
-    const deleteRes = await pool.query('DELETE FROM projekt."Uzytkownik" WHERE "uzytkownik_id"=$1 RETURNING *', [id])
+// router.delete('/uzytkownik/:id', async (req, res) => {
+//   const { id } = req.params;
+//   try {
+//     const deleteRes = await pool.query('DELETE FROM projekt."Uzytkownik" WHERE "uzytkownik_id"=$1 RETURNING *', [id])
 
-    if (deleteRes.rowCount === 0) {
-      res.status(400).json({ "message": "Wrong id" })
-      return;
-    }
-    res.status(200).json(deleteRes.rows[0])
-  } catch (e) {
-    res.status(400).json({ "message": e.message });
-  }
-})
+//     if (deleteRes.rowCount === 0) {
+//       res.status(400).json({ "message": "Wrong id" })
+//       return;
+//     }
+//     res.status(200).json(deleteRes.rows[0])
+//   } catch (e) {
+//     res.status(400).json({ "message": e.message });
+//   }
+// })
 
 router.delete('/rezerwacja/:id', async (req, res) => {
   const { id } = req.params;
