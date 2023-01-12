@@ -8,8 +8,17 @@ const Home: NextPage = () => {
     <>
       <Header />
       <div className="flex flex-col items-center gap-2">
+        <p className="text-2xl text-black mt-20">
+          Strona główna
+        </p>
         <p className="text-2xl text-black">
-          {"Home page"}
+          Projekt wykonany w ramach zajęć Bazy Danych I
+        </p>
+        <p className="text-2xl text-black">
+          Hotel
+        </p>
+        <p className="text-xl text-black">
+          Mateusz Cichostępski
         </p>
       </div>
     </>
