@@ -85,14 +85,11 @@ const BookingWithId: NextPage = () => {
     }
 
     if (userId !== null && bookingId !== undefined && userToken !== undefined) {
-      console.log(userId, bookingId, userToken);
       axios.get(URI + 'get/rezerwacja/' + bookingId, {
         headers: {
           Authorization: "Bearer " + userToken,
         }
       }).then(data => {
-        console.log(data.data);
-
         setReservationInfo(data.data)
         setStartDate(getDateFromString(data.data.data_rozpoczecia));
         setEndDate(getDateFromString(data.data.data_zakonczenia));
@@ -117,7 +114,6 @@ const BookingWithId: NextPage = () => {
   const handleEditReserveClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.stopPropagation();
     e.preventDefault();
-    console.log("edit", startDate, endDate);
 
     if (bookingId === undefined && userId === undefined || userId === null || endDate === null || !guestsNumber || room === undefined) return;
     setResponseMessage("")
@@ -135,8 +131,7 @@ const BookingWithId: NextPage = () => {
     }).then(data => {
       setResponseMessage("Poprawna edycja rezerwacji!");
     }).catch(err => {
-      console.log(err.response);
-      setResponseMessage("Blad podczas edycji rezerwacji")
+      setResponseMessage(err.response.data.message)
     })
   }
 

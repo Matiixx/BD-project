@@ -40,18 +40,12 @@ const Bookings: NextPage = () => {
           Authorization: "Bearer " + userToken,
         }
       }).then(data => {
-        console.log(data.data);
         setBookings(data.data.rezerwacja)
       }).catch(err => {
         console.log(err);
       })
     }
   }, [userId, userToken])
-
-
-  useEffect(() => {
-
-  }, [])
 
   const handleDeleteBooking = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, rezerwacja_id: number) => {
     e.stopPropagation();
@@ -63,8 +57,7 @@ const Bookings: NextPage = () => {
     }).then(data => {
       setBookings(b => b.filter(el => el.rezerwacja_id !== rezerwacja_id))
     }).catch(err => {
-      console.log(err.response.data.message);
-
+      console.log(err);
     })
   }
 
@@ -77,8 +70,9 @@ const Bookings: NextPage = () => {
           {bookings?.length ? (
             bookings.map((el, idx) => (
               <div
-                onClick={() => router.push({ pathname: "./bookings/[bookingId]", query: { bookingId: el.rezerwacja_id } })}
-                className="cursor-pointer max-w-sm rounded overflow-hidden shadow-lg p-4 m-2 flex flex-row gap-4 w-1/3 min-w-[350px] justify-between bg-gray-100" key={idx}>
+                onClick={() => dateDiff(new Date(), getDateFromString(el.data_rozpoczecia)) >= 1 ? router.push({ pathname: "./bookings/[bookingId]", query: { bookingId: el.rezerwacja_id } }) : null}
+                className={`${dateDiff(new Date(), getDateFromString(el.data_rozpoczecia)) >= 1 ? "cursor-pointer" : ""} max-w-sm rounded overflow-hidden shadow-lg p-4 m-2 flex flex-row gap-4 w-1/3 min-w-[350px] justify-between bg-gray-100`}
+                key={idx}>
                 <div className="flex flex-col gap-2 ">
                   <div>Rezerwacja nr: {el.rezerwacja_id}</div>
                   <div>Pokoj nr: {el.numer_pokoju}</div>

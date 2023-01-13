@@ -41,7 +41,6 @@ const Rooms: NextPage = () => {
           Authorization: "Bearer " + userToken,
         }
       }).then(data => {
-        console.log(data);
         setRooms(data.data)
       }).catch(err => {
         console.log(err);

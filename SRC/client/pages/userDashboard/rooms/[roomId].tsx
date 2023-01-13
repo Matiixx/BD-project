@@ -64,7 +64,6 @@ const RoomWithId: NextPage = () => {
         }
       }).then(data => {
         setRoom(data.data)
-        console.log(data.data);
 
         for (const res of data.data.rezerwacja) {
           setReservedDays((prev) => [...prev, { start: getDateFromString(res.data_rozpoczecia), end: getDateFromString(res.data_zakonczenia) }])
