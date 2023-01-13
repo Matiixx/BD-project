@@ -29,9 +29,10 @@ router.put('/pokoj/:id', authenticateJWT, async (req, res) => {
 router.put('/rezerwacja/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
   const { uzytkownik_id, data_rozpoczecia, data_zakonczenia, pokoj_id, liczba_gosci } = req.body;
+  const { userId } = req.user;
   try {
-    const updateRes = await pool.query('UPDATE projekt."Rezerwacja" SET "uzytkownik_id"=$1,"data_rozpoczecia"=$2,"data_zakonczenia"=$3,"pokoj_id"=$4,"liczba_gosci"=$5,"data_rezerwacji"=$6 WHERE "rezerwacja_id"=$7 RETURNING *;',
-      [uzytkownik_id, data_rozpoczecia, data_zakonczenia, pokoj_id, liczba_gosci, new Date(), id])
+    const updateRes = await pool.query('UPDATE projekt."Rezerwacja" SET "uzytkownik_id"=$1,"data_rozpoczecia"=$2,"data_zakonczenia"=$3,"pokoj_id"=$4,"liczba_gosci"=$5,"data_rezerwacji"=$6 WHERE "rezerwacja_id"=$7 AND "uzytkownik_id"=$8 RETURNING *;',
+      [uzytkownik_id, data_rozpoczecia, data_zakonczenia, pokoj_id, liczba_gosci, new Date(), id, userId])
     if (!updateRes.rows.length)
       res.status(400).json({ "message": "Błędne id" })
     else {

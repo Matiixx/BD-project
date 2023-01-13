@@ -101,24 +101,26 @@ router.get('/rezerwacja-pokoju/:id', authenticateJWT, async (req, res) => {
 
 router.get('/rezerwacja/:id', authenticateJWT, async (req, res) => {
   const { id } = req.params;
+  const { userId } = req.user;
   const rezerwacjaRes = await pool.query('SELECT * FROM projekt."Rezerwacja" where "rezerwacja_id"=$1;', [id])
-  if (rezerwacjaRes.rowCount === 0) {
-    res.status(400).json({ "message": "Wrong id" })
-    return;
+  if (rezerwacjaRes.rowCount === 0 || userId !== rezerwacjaRes.rows[0].uzytkownik_id) {
+    res.status(400).json({ "message": "Wrong id" }).send()
+  } else {
+    const platnoscRes = await pool.query('SELECT * FROM projekt."Platnosc" where "rezerwacja_id"=$1;', [id])
+    const zakwaterowanieRes = await pool.query('SELECT * FROM projekt."Zakwaterowanie" where "rezerwacja_id"=$1;', [id])
+    const uzykownikRes = await pool.query('SELECT "imie", "nazwisko" FROM projekt."Uzytkownik" where "uzytkownik_id"=$1;', [rezerwacjaRes.rows[0].uzytkownik_id])
+    const rezerwacjaPokojuRes = await pool.query('SELECT * FROM projekt."Rezerwacja" where "pokoj_id"=$1', [rezerwacjaRes.rows[0].pokoj_id])
+    const pokojRes = await pool.query('SELECT * FROM projekt."Pokoj" where "pokoj_id"=$1', [rezerwacjaRes.rows[0].pokoj_id])
+    res.json({
+      ...rezerwacjaRes.rows[0],
+      "platnosc": platnoscRes.rows[0],
+      "uzytkownik": uzykownikRes.rows[0],
+      "zakwaterowanie": zakwaterowanieRes.rows[0],
+      "rezerwacja": rezerwacjaPokojuRes.rows,
+      "pokoj": pokojRes.rows[0],
+      "userId": userId,
+    })
   }
-  const platnoscRes = await pool.query('SELECT * FROM projekt."Platnosc" where "rezerwacja_id"=$1;', [id])
-  const zakwaterowanieRes = await pool.query('SELECT * FROM projekt."Zakwaterowanie" where "rezerwacja_id"=$1;', [id])
-  const uzykownikRes = await pool.query('SELECT "imie", "nazwisko" FROM projekt."Uzytkownik" where "uzytkownik_id"=$1;', [rezerwacjaRes.rows[0].uzytkownik_id])
-  const rezerwacjaPokojuRes = await pool.query('SELECT * FROM projekt."Rezerwacja" where "pokoj_id"=$1', [rezerwacjaRes.rows[0].pokoj_id])
-  const pokojRes = await pool.query('SELECT * FROM projekt."Pokoj" where "pokoj_id"=$1', [rezerwacjaRes.rows[0].pokoj_id])
-  res.json({
-    ...rezerwacjaRes.rows[0],
-    "platnosc": platnoscRes.rows[0],
-    "uzytkownik": uzykownikRes.rows[0],
-    "zakwaterowanie": zakwaterowanieRes.rows[0],
-    "rezerwacja": rezerwacjaPokojuRes.rows,
-    "pokoj": pokojRes.rows[0]
-  })
 })
 
 router.get('/uzytkownik', authenticateJWT, async (req, res) => {
