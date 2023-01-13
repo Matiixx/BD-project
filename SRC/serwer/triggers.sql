@@ -39,10 +39,20 @@ CREATE Trigger dodajZakwaterowanieDoRezerwacji
 AFTER
 INSERT ON "Rezerwacja" for each row execute procedure dodajZakwaterowanieDoRezerwacji();
 ------------------------------------------------------------------------------------------------------------
-CREATE or replace function edytujPlatnoscDoRezerwacji() returns TRIGGER language plpgsql as $$
+CREATE or replace function edytujRezerwacje() returns TRIGGER language plpgsql as $$
 DECLARE kwota_record decimal;
 liczba_dni INTEGER;
-BEGIN liczba_dni := NEW.data_zakonczenia - NEW.data_rozpoczecia;
+BEGIN IF (
+  SELECT CURRENT_DATE
+) > OLD.data_zakonczenia THEN raise EXCEPTION 'Proba edycji starej rezerwacji';
+RETURN NULL;
+END IF;
+IF (
+  SELECT CURRENT_DATE
+) >= OLD.data_rozpoczecia THEN raise EXCEPTION 'Proba edycji aktywnej rezerwacji';
+RETURN NULL;
+END IF;
+liczba_dni := NEW.data_zakonczenia - NEW.data_rozpoczecia;
 select k."cena_doba" into kwota_record
 from projekt."Kategoria" as k
   join projekt."Pokoj" as p USING("kategoria_id")
@@ -54,10 +64,9 @@ where "rezerwacja_id" = NEW.rezerwacja_id;
 return NEW;
 END;
 $$;
-drop Trigger edytujPlatnoscDoRezerwacji on "Rezerwacja";
-CREATE Trigger edytujPlatnoscDoRezerwacji
-AFTER
-UPDATE ON "Rezerwacja" for each row execute procedure edytujPlatnoscDoRezerwacji();
+drop Trigger edytujRezerwacje on "Rezerwacja";
+CREATE Trigger edytujRezerwacje BEFORE
+UPDATE ON "Rezerwacja" for each row execute procedure edytujRezerwacje();
 ------------------------------------------------------------------------------------------------------------
 CREATE or replace function sprawdzNowyPokoj() returns TRIGGER language plpgsql as $$ BEGIN IF new.powierzchnia < 0 THEN raise EXCEPTION 'Zla powierzchnnia';
 END IF;
