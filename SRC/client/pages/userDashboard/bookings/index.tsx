@@ -49,7 +49,6 @@ const Bookings: NextPage = () => {
 
   const handleDeleteBooking = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, rezerwacja_id: number) => {
     e.stopPropagation();
-    console.log(rezerwacja_id);
     axios.delete(URI + 'delete/rezerwacja/' + rezerwacja_id, {
       headers: {
         Authorization: "Bearer " + userToken,

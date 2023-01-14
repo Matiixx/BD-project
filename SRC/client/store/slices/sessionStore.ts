@@ -42,7 +42,6 @@ export const useSessionSlice: StateCreator<
   userId: null,
 
   loginUser: async (email, password) => {
-    console.log(URI, email, password);
     try {
       const res = await axios.post(URI + 'session/userLogin', {
         email, password
@@ -52,7 +51,6 @@ export const useSessionSlice: StateCreator<
       setLocalStorage("accessToken", res.data.accessToken)
       setLocalStorage("userType", res.data.role)
       setLocalStorage("userId", res.data.userId)
-      console.log(res.data);
       return res.data.role;
     }
     catch (err) {
@@ -61,11 +59,9 @@ export const useSessionSlice: StateCreator<
   },
 
   registerUser: async (inputs: RegisterInputs) => {
-    console.log(inputs);
     return axios.post(URI + 'post/uzytkownik', {
       ...inputs
     }).then(d => {
-      console.log(d);
       return true;
     }).catch(err => {
       console.log(err);
@@ -98,7 +94,6 @@ export const useSessionSlice: StateCreator<
     return axios.post(URI + 'session/pracownikLogin', {
       email, password
     }).then(data => {
-      console.log(data);
       set({ accessToken: data.data.accessToken, email, userType: data.data.role, userId: data.data.userId })
       setLocalStorage("email", email)
       setLocalStorage("accessToken", data.data.accessToken)

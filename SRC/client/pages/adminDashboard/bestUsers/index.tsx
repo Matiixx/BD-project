@@ -43,7 +43,6 @@ const BestUsers: NextPage = () => {
           Authorization: "Bearer " + userToken,
         }
       }).then(data => {
-        console.log(data);
         setUsers(data.data)
       }).catch(err => {
         console.log(err);

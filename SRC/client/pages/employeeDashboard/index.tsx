@@ -60,7 +60,7 @@ const EmployeeDashboard: NextPage = () => {
 
           {/* Lista */}
           <div className="p-2 px-10 w-full">
-            <p>Lista przypisanych pokoi</p>
+            <p>Lista twoich przypisanych pokoi</p>
             {
               assignedRooms.map(el => (
                 <div key={el.pokoj_id} className="p-2 w-full shadow-lg border-2 my-4 flex flex-row justify-between items-center">

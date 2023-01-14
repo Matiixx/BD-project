@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Header from "../../../components/Header";
 import useStore from "../../../store/useStore";
-import { addDays, dateDiff, getDateFromString, getDateStringFromDBString, getTimeFromString } from "../../../utils/dateUtils";
+import { addDays, dateDiff, getDateFromString } from "../../../utils/dateUtils";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -57,7 +57,6 @@ const RoomWithId: NextPage = () => {
     }
 
     if (userId !== null && roomId !== undefined && userToken !== undefined) {
-      console.log(userId, roomId, userToken);
       axios.get(URI + 'get/pokoj/' + roomId, {
         headers: {
           Authorization: "Bearer " + userToken,
