@@ -136,7 +136,7 @@ router.get('/uzytkownik/:id', authenticateJWT, async (req, res) => {
   id = parseInt(id);
   const { userId: tokenUserId } = req.user;
   if (id != tokenUserId && role !== "admin") res.status(401);
-  const uzytkownikRes = await pool.query('SELECT * FROM projekt."Uzytkownik" where "uzytkownik_id"=$1;', [id])
+  const uzytkownikRes = await pool.query('SELECT uzytkownik_id, imie, nazwisko, email, adres, miasto FROM projekt."Uzytkownik" where "uzytkownik_id"=$1;', [id])
   if (uzytkownikRes.rowCount === 0) {
     res.status(400).json({ "message": "Wrong id" })
     return;
