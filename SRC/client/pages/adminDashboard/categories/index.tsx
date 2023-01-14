@@ -45,7 +45,6 @@ const Categories: NextPage = () => {
           Authorization: "Bearer " + userToken,
         }
       }).then(data => {
-        console.log(data);
         setCategories(data.data)
       }).catch(err => {
         console.log(err);
@@ -56,16 +55,16 @@ const Categories: NextPage = () => {
   const updateFields = (index: number, prop: string, val: number | string) => {
     setResponseMessage({ id: -1, message: "" })
     let newVal = [...categories];
-    console.log(newVal.find(el => el.kategoria_id === index));
     newVal.find(el => el.kategoria_id === index)[prop] = val;
     setCategories(newVal)
   }
 
   const handleEditClick = (index: number) => {
     const toUpdate = categories.find(el => el.kategoria_id === index);
-    console.log(toUpdate)
 
     if (toUpdate === undefined) return;
+
+    if (!toUpdate.nazwa_kategorii || !toUpdate.cena_doba) return;
 
     axios.put(URI + "put/kategoria/" + index, {
       nazwa_kategorii: toUpdate.nazwa_kategorii,
@@ -75,7 +74,6 @@ const Categories: NextPage = () => {
         Authorization: "Bearer " + userToken,
       }
     }).then(data => {
-      console.log(data);
       setResponseMessage({ id: index, message: "Zapisano" })
     }).catch(err => {
       console.log(err);

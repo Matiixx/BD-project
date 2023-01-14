@@ -45,7 +45,6 @@ const Employees: NextPage = () => {
           Authorization: "Bearer " + userToken,
         }
       }).then(data => {
-        console.log(data);
         setEmployees(data.data)
       }).catch(err => {
         console.log(err);
@@ -54,14 +53,12 @@ const Employees: NextPage = () => {
   }, [userId, userToken])
 
   const handleDeleteEmployee = async (employee_id: number) => {
-    console.log(employee_id);
 
     axios.delete(URI + 'delete/pracownik/' + employee_id, {
       headers: {
         Authorization: "Bearer " + userToken,
       }
     }).then(data => {
-      console.log(data);
       setEmployees(prev => prev.filter(el => el.pracownik_id !== employee_id));
     }).catch(err => {
       console.log(err);

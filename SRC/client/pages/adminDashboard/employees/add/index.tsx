@@ -43,7 +43,6 @@ const AddEmployee: NextPage = () => {
   }, [userId, userToken])
 
   const handleAddEmployee = () => {
-    console.log(employee);
     if (!employee.email || !employee.imie || !employee.nazwisko) return;
 
     axios.post(URI + "post/pracownik", {
@@ -53,7 +52,6 @@ const AddEmployee: NextPage = () => {
         Authorization: "Bearer " + userToken,
       }
     }).then(data => {
-      console.log(data);
       setResponseMessage("Dodano")
       setEmployee({ email: "", imie: "", nazwisko: "", haslo: "" })
     }).catch(err => {

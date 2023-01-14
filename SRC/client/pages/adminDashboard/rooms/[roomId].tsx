@@ -71,14 +71,12 @@ const RoomWithId: NextPage = () => {
     }
 
     if (userId !== null && roomId !== undefined && userToken !== undefined && userRole === "admin") {
-      console.log(userId, roomId, userToken);
       axios.get(URI + 'get/pokoj/' + roomId, {
         headers: {
           Authorization: "Bearer " + userToken,
         }
       }).then(data => {
         setRoom(data.data)
-        console.log(data.data);
 
         setEditValues({
           pietro: data.data.pietro,
@@ -98,7 +96,6 @@ const RoomWithId: NextPage = () => {
           Authorization: "Bearer " + userToken,
         }
       }).then(data => {
-        console.log(data);
         setCategories(data.data)
       })
     }
@@ -109,8 +106,6 @@ const RoomWithId: NextPage = () => {
     e.stopPropagation();
     e.preventDefault();
 
-    console.log(editValues);
-
     if (roomId === undefined && userId === undefined || userId === null || !editValues?.liczba_miejsc || !editValues.powierzchnia || !editValues.pietro) return;
 
     axios.put(URI + 'put/pokoj/' + roomId, {
@@ -120,7 +115,6 @@ const RoomWithId: NextPage = () => {
         Authorization: "Bearer " + userToken,
       },
     }).then(data => {
-      console.log(data);
       setResponseMessage("Zapisano")
     }).catch(err => {
       console.log(err);

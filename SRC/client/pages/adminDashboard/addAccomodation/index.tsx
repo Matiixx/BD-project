@@ -46,7 +46,6 @@ const Accomodations: NextPage = () => {
           Authorization: "Bearer " + userToken,
         }
       }).then(data => {
-        console.log(data.data);
         setAccomodations(data.data);
       }).catch(err => {
         console.log(err);
@@ -91,7 +90,7 @@ const Accomodations: NextPage = () => {
                   <span className="w-1/3">{el.email}</span>
                   <span className="w-1/6">{el.rezerwacja_id}</span>
                   <span className="w-1/4">{getDateFromString(el.data_rozpoczecia).toLocaleDateString()}</span>
-                  <button className='w-1/6' onClick={() => handleSetAccomodation(el.zakwaterowanie_id)}>Zakwateruj</button>
+                  <button className='w-1/6 text-left' onClick={() => handleSetAccomodation(el.zakwaterowanie_id)}>Zakwateruj</button>
                 </div>
               ))
             }

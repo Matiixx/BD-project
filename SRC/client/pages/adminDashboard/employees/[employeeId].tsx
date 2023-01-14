@@ -69,8 +69,6 @@ const EmployeeWithId: NextPage = () => {
           Authorization: "Bearer " + userToken,
         }
       }).then(data => {
-        console.log(data.data);
-
         setEmployee(data.data)
       }).catch(err => {
         console.log(err);
@@ -89,8 +87,6 @@ const EmployeeWithId: NextPage = () => {
   }, [userId, employeeId, userToken])
 
   const handleDeleteRoom = (pracownicy_pokoju_id: number) => {
-    console.log(pracownicy_pokoju_id);
-
     if (employee === undefined) return;
 
     axios.delete(URI + 'delete/pracownik-pokoju/' + pracownicy_pokoju_id, {
@@ -102,15 +98,12 @@ const EmployeeWithId: NextPage = () => {
       newRooms = newRooms.filter(el =>
         el.pracownicy_pokoju_id !== pracownicy_pokoju_id
       );
-      console.log(newRooms);
 
       setEmployee(prev => ({ ...prev, pokoj: newRooms }))
     }).catch(err => {
       console.log(err);
     })
   }
-
-  // console.log(employee?.pokoj);
 
   const handleAddRoomToEmployee = () => {
     setResponseMessage("")

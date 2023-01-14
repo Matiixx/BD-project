@@ -74,7 +74,6 @@ const AddRoom: NextPage = () => {
         Authorization: "Bearer " + userToken,
       }
     }).then(data => {
-      console.log(data);
       setResponseMessage("Dodano")
       setRoom({ numer_pokoju: 0, pietro: 0, liczba_miejsc: 1, kategoria_id: 0, powierzchnia: 0, balkon: false, klimatyzacja: false })
     }).catch(err => {

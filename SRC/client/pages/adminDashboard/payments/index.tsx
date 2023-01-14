@@ -46,7 +46,6 @@ const Accomodations: NextPage = () => {
           Authorization: "Bearer " + userToken,
         }
       }).then(data => {
-        console.log(data.data);
         setPayments(data.data);
       }).catch(err => {
         console.log(err);
@@ -55,7 +54,6 @@ const Accomodations: NextPage = () => {
   }, [userId, userToken])
 
   const handleSetPayment = (id: number) => {
-    console.log(id);
     axios.put(URI + "put/platnosc/" + id, {
       czy_zaksiegowane: true,
       data_platnosci: new Date(),
@@ -78,7 +76,7 @@ const Accomodations: NextPage = () => {
         <div className="w-2/3 bg-purple-200 shadow-lg border-2 border-gray-400 flex justify-center flex-col items-center">
 
           <div className="p-2 px-10 w-full">
-            <p>Lista niezakwaterowanych osób</p>
+            <p>Lista niezaksięgowanych płatności</p>
             <div className="p-2 w-full shadow-lg my-4 flex flex-row justify-between items-center">
               <span className="w-1/4 font-bold">Numer rezerwacji</span>
               <span className="w-1/4 font-bold">Data rozpoczęcia rezerwacji</span>

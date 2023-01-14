@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Header from "../../../components/Header";
 import useStore from "../../../store/useStore";
-import { dateDiff, getDateFromString, getDateStringFromDBString, getTimeFromString } from "../../../utils/dateUtils";
+import { getDateStringFromDBString } from "../../../utils/dateUtils";
 
 const URI = 'http://pascal.fis.agh.edu.pl:3040/0cichostepski/'
 
@@ -42,7 +42,6 @@ const User: NextPage = () => {
           Authorization: "Bearer " + userToken,
         }
       }).then(data => {
-        console.log(data.data);
         setBookings(data.data.rezerwacja)
       }).catch(err => {
         console.log(err);
