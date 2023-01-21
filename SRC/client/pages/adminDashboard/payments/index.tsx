@@ -7,7 +7,7 @@ import useStore from "../../../store/useStore";
 import axios from 'axios';
 import { getDateFromString } from '../../../utils/dateUtils';
 
-const URI = 'http://pascal.fis.agh.edu.pl:3040/0cichostepski/'
+const URI = process.env.NEXT_PUBLIC_BACKEND_URL
 
 interface IPayment {
   platnosc_id: number;

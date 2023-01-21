@@ -7,7 +7,7 @@ import Header from "../../../components/Header";
 import useStore from "../../../store/useStore";
 import { useForm, SubmitHandler } from "react-hook-form";
 
-const URI = 'http://pascal.fis.agh.edu.pl:3040/0cichostepski/'
+const URI = process.env.NEXT_PUBLIC_BACKEND_URL
 
 
 interface IRoom {

@@ -1,7 +1,7 @@
 import { StateCreator } from 'zustand'
 import axios from 'axios';
 
-const URI = 'http://pascal.fis.agh.edu.pl:3040/0cichostepski/'
+const URI = process.env.NEXT_PUBLIC_BACKEND_URL
 
 export interface SessionSlice {
   email: string | null | undefined;
@@ -11,7 +11,8 @@ export interface SessionSlice {
   loginUser: (email: string, password: string) => Promise<boolean | string>;
   loadFromLocalStorage: () => void;
   logoutUser: () => Promise<void>;
-  loginEmployee: (email: string, password: string) => Promise<boolean | string>
+  loginEmployee: (email: string, password: string) => Promise<boolean | string>;
+  registerUser: (input: RegisterInputs) => Promise<boolean>
 }
 
 type RegisterInputs = {

@@ -6,7 +6,7 @@ import Header from "../../../components/Header";
 import useStore from "../../../store/useStore";
 import { dateDiff, getDateFromString, getDateStringFromDBString, getTimeFromString } from "../../../utils/dateUtils";
 
-const URI = 'http://pascal.fis.agh.edu.pl:3040/0cichostepski/'
+const URI = process.env.NEXT_PUBLIC_BACKEND_URL
 
 interface IBookings {
   data_rezerwacji: string;
